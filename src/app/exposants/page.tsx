@@ -71,7 +71,7 @@ export default function ExposantsPage() {
         <div className="container">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow"><span className="size-1.5 rounded-full bg-orange" />Pourquoi exposer</span>
-            <h2 className="mt-4 text-balance text-3xl font-extrabold sm:text-4xl">Un retour sur investissement concret</h2>
+            <h2 className="mt-4 text-balance text-3xl font-extrabold text-orange sm:text-4xl">Un retour sur investissement concret</h2>
           </Reveal>
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {WHY_EXHIBIT.map((item, i) => (
@@ -114,7 +114,7 @@ export default function ExposantsPage() {
         <div className="container">
           <Reveal className="mx-auto max-w-2xl text-center">
             <span className="eyebrow"><span className="size-1.5 rounded-full bg-orange" />Formules de sponsoring</span>
-            <h2 className="mt-4 text-balance text-3xl font-extrabold sm:text-4xl">Choisissez votre niveau d'engagement</h2>
+            <h2 className="mt-4 text-balance text-3xl font-extrabold text-orange sm:text-4xl">Choisissez votre niveau d'engagement</h2>
             <p className="mt-3 text-muted">Formules indicatives — personnalisables selon vos objectifs.</p>
           </Reveal>
 
@@ -129,7 +129,7 @@ export default function ExposantsPage() {
                 )}
               >
                 {tier.featured && (
-                  <Badge variant="orange" className="absolute -top-3 left-7">
+                  <Badge variant="orange" className="absolute -top-3 left-7 bg-orange text-white shadow-soft">
                     <Star className="size-3.5" /> Le plus choisi
                   </Badge>
                 )}
@@ -166,7 +166,7 @@ export default function ExposantsPage() {
           <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr]">
             <Reveal>
               <span className="eyebrow"><span className="size-1.5 rounded-full bg-orange" />Demande de partenariat</span>
-              <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight sm:text-4xl">
+              <h2 className="mt-4 text-balance text-3xl font-extrabold leading-tight text-orange sm:text-4xl">
                 Parlons de votre participation
               </h2>
               <p className="mt-3 text-muted">

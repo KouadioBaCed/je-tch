@@ -68,7 +68,7 @@ export function Authorities() {
             whileInView="show"
             viewport={viewportOnce}
             variants={fadeUp}
-            className="mb-8 text-center text-sm font-semibold uppercase tracking-[0.18em] text-white/55"
+            className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xl"
           >
             Personnalités institutionnelles
           </motion.p>

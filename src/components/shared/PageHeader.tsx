@@ -8,6 +8,8 @@ interface PageHeaderProps {
   description?: string;
   breadcrumb: string;
   align?: "left" | "center";
+  /** Extra classes for the <h1> (e.g. "text-orange" to override the default white). */
+  titleClassName?: string;
 }
 
 /** Compact institutional banner used at the top of inner pages. */
@@ -17,6 +19,7 @@ export function PageHeader({
   description,
   breadcrumb,
   align = "left",
+  titleClassName,
 }: PageHeaderProps) {
   return (
     <section className="relative isolate overflow-hidden surface-green-dark pb-14 pt-28 text-white lg:pb-20 lg:pt-36">
@@ -40,7 +43,7 @@ export function PageHeader({
           </span>
         )}
 
-        <h1 className={cn("mt-4 text-balance text-4xl font-extrabold leading-[1.08] sm:text-5xl", align === "center" && "mx-auto max-w-3xl")}>
+        <h1 className={cn("mt-4 text-balance text-4xl font-extrabold leading-[1.08] text-orange sm:text-5xl", align === "center" && "mx-auto max-w-3xl", titleClassName)}>
           {title}
         </h1>
 

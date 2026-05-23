@@ -42,7 +42,7 @@ export default function PressePage() {
       <section className="section bg-white">
         <div className="container">
           <Reveal>
-            <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">En bref</h2>
+            <h2 className="text-balance text-2xl font-extrabold text-orange sm:text-3xl">En bref</h2>
           </Reveal>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PRESS_FACTS.map((fact, i) => (
@@ -74,7 +74,7 @@ export default function PressePage() {
       <section className="section bg-surface">
         <div className="container">
           <Reveal>
-            <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">Visuels officiels</h2>
+            <h2 className="text-balance text-2xl font-extrabold text-orange sm:text-3xl">Visuels officiels</h2>
             <p className="mt-2 text-muted">Affiches de la campagne — libres d'utilisation dans un cadre éditorial relatif à l'événement.</p>
           </Reveal>
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,7 +110,7 @@ export default function PressePage() {
       <section className="section bg-white">
         <div className="container grid gap-10 lg:grid-cols-2">
           <Reveal>
-            <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">Charte couleurs</h2>
+            <h2 className="text-balance text-2xl font-extrabold text-orange sm:text-3xl">Charte couleurs</h2>
             <p className="mt-2 text-muted">Les couleurs officielles de l'identité JE-TCH 2026.</p>
             <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {PALETTE.map((c) => (
@@ -126,7 +126,7 @@ export default function PressePage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <h2 className="text-balance text-2xl font-extrabold sm:text-3xl">Contact presse</h2>
+            <h2 className="text-balance text-2xl font-extrabold text-orange sm:text-3xl">Contact presse</h2>
             <p className="mt-2 text-muted">Pour toute demande d'interview, d'accréditation ou d'information.</p>
             <div className="mt-6 space-y-3">
               <a href={`mailto:${EVENT.email}`} className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-green/40">

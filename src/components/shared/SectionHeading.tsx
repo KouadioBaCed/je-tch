@@ -52,7 +52,7 @@ export function SectionHeading({
         variants={fadeUp}
         className={cn(
           "text-balance text-3xl font-extrabold leading-[1.1] sm:text-4xl lg:text-[2.75rem]",
-          isDark ? "text-white" : "text-ink"
+          isDark ? "text-white" : "text-orange"
         )}
       >
         {title}
