@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-montserrat: "Montserrat", system-ui, sans-serif;
+    --font-inter: "Inter", system-ui, sans-serif;
+
+    /* Brand tokens — usable in raw CSS / inline styles */
+    --green: #0d6b3d;
+    --green-dark: #064b2a;
+    --green-light: #4fae5a;
+    --orange: #f58220;
+    --orange-hover: #d96a0c;
+    --gold: #f4c430;
+    --surface: #f6f8f7;
+    --ink: #1e1e1e;
+    --muted: #5b5b5b;
+    --line: #dde5df;
+
+    color-scheme: light;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    @apply font-heading font-extrabold tracking-tight text-ink;
+    text-wrap: balance;
+  }
+
+  ::selection {
+    @apply bg-green text-white;
+  }
+
+  /* Accessible focus ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-green ring-offset-2 ring-offset-background;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Premium section rhythm — very airy */
+  .section {
+    @apply py-20 sm:py-24 lg:py-32;
+  }
+
+  .section-tight {
+    @apply py-14 sm:py-16 lg:py-20;
+  }
+
+  /* Eyebrow / kicker label */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-green;
+  }
+
+  /* Card surface */
+  .card-surface {
+    @apply rounded-lg border border-line bg-white shadow-soft;
+  }
+
+  /* Subtle glass for navbar */
+  .glass {
+    @apply bg-white/80 backdrop-blur-md backdrop-saturate-150;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Gradient text used very sparingly for accents */
+  .text-gradient-green {
+    @apply bg-gradient-to-br from-green-light via-green to-green-dark bg-clip-text text-transparent;
+  }
+
+  /* Container width helper aligned with design grid */
+  .container-px {
+    @apply px-5 sm:px-6 lg:px-8;
+  }
+
+  /* Fine grain noise overlay for depth on dark heroes */
+  .noise-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+  }
+
+  /* Hide scrollbar where needed */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .mask-fade-x {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+}
