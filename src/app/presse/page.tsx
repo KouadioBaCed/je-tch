@@ -20,8 +20,8 @@ const ASSETS = [
 ];
 
 const PALETTE = [
-  { name: "Vert principal", hex: "#0D6B3D" },
-  { name: "Vert foncé", hex: "#064B2A" },
+  { name: "Vert principal", hex: "#1F6F4A" },
+  { name: "Vert foncé", hex: "#124A30" },
   { name: "Vert clair", hex: "#4FAE5A" },
   { name: "Orange", hex: "#F58220" },
   { name: "Jaune accent", hex: "#F4C430" },
@@ -47,14 +47,14 @@ export default function PressePage() {
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {PRESS_FACTS.map((fact, i) => (
               <Reveal key={fact.label} delay={i * 0.05} className="rounded-2xl border border-line bg-surface p-6 shadow-soft">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-green">{fact.label}</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange">{fact.label}</p>
                 <p className="mt-2 font-heading text-lg font-bold text-ink">{fact.value}</p>
               </Reveal>
             ))}
           </div>
 
           {/* Boilerplate */}
-          <Reveal className="mt-10 rounded-2xl border border-line bg-green p-8 text-white shadow-soft-green sm:p-10">
+          <Reveal className="mt-10 rounded-2xl border border-line surface-green p-8 text-white shadow-soft-green sm:p-10">
             <div className="flex items-center gap-2 text-gold">
               <FileText className="size-5" />
               <span className="text-xs font-bold uppercase tracking-[0.14em]">À propos de l'événement</span>

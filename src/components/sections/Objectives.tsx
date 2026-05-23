@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { Target } from "lucide-react";
 import { SectionHeading } from "@/components/shared/SectionHeading";
-import { AnimatedCounter } from "@/components/shared/AnimatedCounter";
 import { OBJECTIVE_GENERAL, OBJECTIVES, EXPECTED_RESULTS } from "@/lib/data";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
@@ -24,7 +23,7 @@ export function Objectives() {
           variants={fadeUp}
           className="mx-auto mt-10 max-w-3xl rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9"
         >
-          <div className="flex items-center gap-2 text-green">
+          <div className="flex items-center gap-2 text-orange">
             <Target className="size-5" />
             <span className="text-xs font-bold uppercase tracking-[0.14em]">Objectif général</span>
           </div>
@@ -61,7 +60,7 @@ export function Objectives() {
 
         {/* Expected results */}
         <div className="mt-16">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-green">
+          <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-orange">
             À l'issue des 3 jours, nous visons
           </p>
           <motion.div
@@ -77,10 +76,7 @@ export function Objectives() {
                 variants={fadeUp}
                 className="flex flex-col items-center rounded-2xl border border-line bg-white p-6 text-center shadow-soft"
               >
-                <span className="font-heading text-4xl font-extrabold leading-none text-orange sm:text-5xl">
-                  <AnimatedCounter value={r.value} />
-                </span>
-                <p className="mt-3 text-xs leading-relaxed text-muted">{r.label}</p>
+                <p className="text-sm font-medium leading-relaxed text-ink">{r.label}</p>
               </motion.div>
             ))}
           </motion.div>

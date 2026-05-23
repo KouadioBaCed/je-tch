@@ -280,16 +280,15 @@ export const OBJECTIVES: Objective[] = [
 /* -------------------------------------------------------------------------- */
 
 export interface ExpectedResult {
-  value: number;
   label: string;
 }
 
 export const EXPECTED_RESULTS: ExpectedResult[] = [
-  { value: 500, label: "producteurs formés aux bonnes pratiques de stockage sans perte" },
-  { value: 50, label: "intentions de financement signées entre banques et coopératives via warrantage" },
-  { value: 30, label: "contrats d'achat engagés entre acheteurs et organisations de producteurs" },
-  { value: 3, label: "modèles d'entrepôts validés et diffusés pour réplication dans la région" },
-  { value: 1, label: "feuille de route Tchologo 2026-2028 adoptée pour la modernisation du stockage" },
+  { label: "Des producteurs seront formés aux bonnes pratiques de stockage sans perte" },
+  { label: "Des intentions de financement seront signées entre banques et coopératives via warrantage" },
+  { label: "Des contrats d'achat seront engagés entre acheteurs et organisations de producteurs" },
+  { label: "Des modèles d'entrepôts seront validés et diffusés pour réplication dans la région" },
+  { label: "La feuille de route Tchologo 2026-2028 sera adoptée pour la modernisation du stockage" },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -455,6 +454,10 @@ export interface Dignitary {
   statement?: string;
   /** Icône de fonction (comité). */
   icon?: LucideIcon;
+  /** Sceau institutionnel associé (chemin local sous /public). */
+  logo?: string;
+  /** Texte alternatif / infobulle du sceau institutionnel. */
+  logoAlt?: string;
 }
 
 /** Personnalités institutionnelles — la première (featured) est mise en avant. */
@@ -466,31 +469,62 @@ export const DIGNITARIES: Dignitary[] = [
     featured: true,
     statement:
       "Sous son impulsion, le Tchologo fait de la modernisation de l'entreposage agricole une priorité de développement régional et national.",
+    logo: "/logo/tchologo.jpeg",
+    logoAlt: "Armoiries officielles de la Région du Tchologo",
   },
   {
-    name: "Kaweli Ouattara",
-    role: "Maire de la Commune de Ferkessédougou",
-    image: "/presentation/keweli_ouattara.jpg",
-  },
-  {
-    name: "Abdramane Berté",
+    name: "M.Abdramane Berté",
     role: "Maire de la Commune de Kong",
     image: "/presentation/abdramane_berte.jpg",
   },
   {
-    name: "Moussa Toungara",
+    name: "M.Moussa Toungara",
     role: "Maire de la Commune de Ouangolodougou",
     image: "/presentation/moussa_toungara.jpeg",
   },
   {
-    name: "Pr Koffi",
+    name: "M.Kaweli Ouattara",
+    role: "Maire de la Commune de Ferkessédougou",
+    image: "/presentation/keweli_ouattara.jpg",
+  },
+  {
+    name: "M.Alassane Ouattara",
+    role: "Maire de la Commune de Nielle",
+    image: "/presentation/alassane.jpeg",
+  },
+  {
+    name: "M.Mamadou Ouattara",
+    role: "Maire de la Commune de Diawala",
+    image: "/presentation/mamadou_ouat.jpeg",
+  },
+  {
+    name: "Pr. Koffi Justin",
     role: "Directeur Général de l'ARRE-CI",
     image: "/presentation/pr_koffi.jpeg",
+    logo: "/logo/arre_ci.jpeg",
+    logoAlt: "Logo officiel de l'ARRE-CI",
   },
 ];
 
+/** Numéro deux institutionnel — mis en avant juste sous la personnalité principale. */
+export const SECONDARY_DIGNITARY: Dignitary = {
+  name: "Sénateur Traoré Bamoudien",
+  role: "Vice-Président du Conseil Régional du Tchologo",
+  image: "/presentation/senateur.jpeg",
+};
+
 /** Commissariat Général & Comité Scientifique. */
 export const COMMITTEE: Dignitary[] = [
+  {
+    // Moussa Toungara figure aussi dans DIGNITARIES (Maire de Ouangolodougou) ;
+    // il est volontairement dupliqué ici avec une fonction d'organisation.
+    name: "Moussa Toungara",
+    role: "Chargé des relations avec les cadres du Tchologo",
+    image: "/presentation/moussa_toungara.jpeg",
+    icon: Handshake,
+    statement:
+      "Mobilise et fédère les cadres et les forces vives du Tchologo autour de l'événement.",
+  },
   {
     name: "Traoré Isahq Touramann",
     role: "Commissaire Général",

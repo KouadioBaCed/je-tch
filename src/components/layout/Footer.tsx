@@ -21,7 +21,7 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-green-dark text-white">
+    <footer className="relative overflow-hidden surface-green-dark text-white">
       {/* subtle top accent */}
       <div className="h-1 w-full bg-gradient-to-r from-green-light via-gold to-orange" />
 

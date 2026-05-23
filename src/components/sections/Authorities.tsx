@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { FeaturedDignitary } from "@/components/institutional/FeaturedDignitary";
 import { DignitaryCard } from "@/components/institutional/DignitaryCard";
 import { CommitteeCard } from "@/components/institutional/CommitteeCard";
-import { DIGNITARIES, COMMITTEE, EVENT } from "@/lib/data";
+import { DIGNITARIES, SECONDARY_DIGNITARY, COMMITTEE, EVENT } from "@/lib/data";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 /**
@@ -22,7 +23,7 @@ export function Authorities() {
 
   return (
     <section
-      className="relative isolate overflow-hidden bg-green-dark text-white section"
+      className="relative isolate overflow-hidden surface-green-dark text-white section"
       aria-labelledby="authorities-title"
     >
       {/* Ambiance */}
@@ -49,6 +50,17 @@ export function Authorities() {
           <FeaturedDignitary person={principal} />
         </motion.div>
 
+        {/* Numéro deux — le sénateur, juste sous la personnalité principale */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+          className="mt-12 border-t border-white/10 pt-12 lg:mt-16 lg:pt-16"
+        >
+          <FeaturedDignitary person={SECONDARY_DIGNITARY} variant="secondary" />
+        </motion.div>
+
         {/* Personnalités institutionnelles */}
         <div className="mt-16 lg:mt-24">
           <motion.p
@@ -65,7 +77,7 @@ export function Authorities() {
             whileInView="show"
             viewport={viewportOnce}
             variants={staggerContainer(0.1)}
-            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4"
+            className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3"
           >
             {others.map((person) => (
               <DignitaryCard key={person.name} person={person} />
@@ -91,15 +103,23 @@ export function Authorities() {
             whileInView="show"
             viewport={viewportOnce}
             variants={staggerContainer(0.12)}
-            className="mt-10 grid gap-6 lg:grid-cols-2"
+            className="mt-10 grid items-start gap-6 lg:grid-cols-2"
           >
-            {COMMITTEE.map((person, i) => (
-              <CommitteeCard
-                key={person.name}
-                person={person}
-                className={i % 2 === 1 ? "lg:mt-12" : undefined}
-              />
-            ))}
+            {COMMITTEE.map((person, i) => {
+              // Carte seule en fin de rangée impaire → centrée sur la largeur d'une colonne.
+              const loneLast =
+                i === COMMITTEE.length - 1 && COMMITTEE.length % 2 === 1;
+              return (
+                <CommitteeCard
+                  key={person.name}
+                  person={person}
+                  className={cn(
+                    i % 2 === 1 && "lg:mt-12",
+                    loneLast && "lg:col-span-2 lg:mx-auto lg:w-[calc(50%-0.75rem)]"
+                  )}
+                />
+              );
+            })}
           </motion.div>
         </div>
 

@@ -3,13 +3,20 @@ import { NextResponse } from "next/server";
 /**
  * Endpoint d'inscription (producteurs & exposants).
  *
- * En production : connecter ici un service de persistance (Supabase, base de
- * données, CRM, email transactionnel…). Pour l'instant on valide la charge utile
- * côté serveur et on confirme la réception.
+ * Après validation, la demande est relayée vers un Google Apps Script déployé
+ * en « application web », qui écrit une ligne dans Google Sheets.
+ * Configurez `GOOGLE_SHEETS_WEBHOOK_URL` (et, optionnel, `GOOGLE_SHEETS_SECRET`)
+ * dans `.env.local`. Le script à coller est dans `docs/google-sheets-apps-script.gs`.
+ *
+ * Sans webhook configuré, l'endpoint reste en « mode démo » : il valide et
+ * confirme la réception sans rien persister (utile en local).
  */
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const PHONE_RE = /^[+\d][\d\s().-]{6,}$/;
+
+const WEBHOOK_URL = process.env.GOOGLE_SHEETS_WEBHOOK_URL;
+const WEBHOOK_SECRET = process.env.GOOGLE_SHEETS_SECRET ?? "";
 
 export async function POST(request: Request) {
   let body: Record<string, unknown>;
@@ -46,12 +53,42 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Type d'inscription inconnu." }, { status: 400 });
   }
 
-  // TODO(production): persister la demande / notifier l'équipe.
-  // Latence simulée pour une UX de chargement réaliste en démo.
-  await new Promise((r) => setTimeout(r, 600));
+  const ref = `JE-TCH-${Date.now().toString(36).toUpperCase()}`;
+  const submittedAt = new Date().toISOString();
 
-  return NextResponse.json(
-    { ok: true, message: "Inscription bien reçue.", ref: `JE-TCH-${Date.now().toString(36).toUpperCase()}` },
-    { status: 201 }
-  );
+  // Persistance : relais vers Google Apps Script → Google Sheets.
+  if (WEBHOOK_URL) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...body, ref, submittedAt, secret: WEBHOOK_SECRET }),
+        signal: controller.signal,
+      });
+      const data = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      if (!res.ok || (data && data.ok === false)) {
+        console.error("[register] webhook Google a échoué", res.status, data);
+        return NextResponse.json(
+          { ok: false, error: "Enregistrement impossible pour le moment. Réessayez." },
+          { status: 502 }
+        );
+      }
+    } catch (err) {
+      console.error("[register] erreur réseau vers le webhook Google", err);
+      return NextResponse.json(
+        { ok: false, error: "Service momentanément indisponible. Réessayez." },
+        { status: 502 }
+      );
+    } finally {
+      clearTimeout(timeout);
+    }
+  } else {
+    console.warn(
+      "[register] GOOGLE_SHEETS_WEBHOOK_URL absent : inscription validée mais NON persistée (mode démo)."
+    );
+  }
+
+  return NextResponse.json({ ok: true, message: "Inscription bien reçue.", ref }, { status: 201 });
 }

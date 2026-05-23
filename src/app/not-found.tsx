@@ -5,7 +5,7 @@ import { Logo } from "@/components/brand/Logo";
 
 export default function NotFound() {
   return (
-    <section className="relative isolate grid min-h-[80svh] place-items-center overflow-hidden bg-green-dark px-5 text-center text-white">
+    <section className="relative isolate grid min-h-[80svh] place-items-center overflow-hidden surface-green-dark px-5 text-center text-white">
       <div className="noise-overlay absolute inset-0 -z-10 opacity-[0.05]" />
       <div className="absolute -top-20 left-1/2 -z-10 size-96 -translate-x-1/2 rounded-full bg-green/40 blur-3xl" />
       <div className="flex flex-col items-center">

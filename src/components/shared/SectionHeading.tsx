@@ -41,7 +41,7 @@ export function SectionHeading({
             "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em]",
             isDark
               ? "border-white/25 bg-white/10 text-white"
-              : "border-line bg-white text-green"
+              : "border-line bg-white text-orange"
           )}
         >
           <span className={cn("size-1.5 rounded-full", isDark ? "bg-gold" : "bg-orange")} />

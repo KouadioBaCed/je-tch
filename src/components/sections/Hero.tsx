@@ -54,7 +54,7 @@ export function Hero() {
       </div>
 
       {/* Barre interactive : CTAs + compte à rebours (éléments vivants conservés) */}
-      <div className="relative bg-gradient-to-b from-green-dark to-[#053c22]">
+      <div className="relative surface-green-dark">
         <div className="noise-overlay pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-overlay" />
 
         <motion.div

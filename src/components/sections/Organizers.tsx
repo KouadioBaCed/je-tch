@@ -45,7 +45,7 @@ export function Organizers() {
           whileInView="show"
           viewport={viewportOnce}
           variants={fadeUp}
-          className="relative mx-auto mt-10 max-w-2xl rounded-2xl border border-line bg-green p-8 text-center text-white shadow-soft-green"
+          className="relative mx-auto mt-10 max-w-2xl rounded-2xl border border-line surface-green p-8 text-center text-white shadow-soft-green"
         >
           <Quote className="mx-auto size-8 text-gold" />
           <p className="mt-4 text-balance font-heading text-xl font-bold leading-snug sm:text-2xl">

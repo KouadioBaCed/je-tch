@@ -8,8 +8,8 @@
     --font-inter: "Inter", system-ui, sans-serif;
 
     /* Brand tokens — usable in raw CSS / inline styles */
-    --green: #0d6b3d;
-    --green-dark: #064b2a;
+    --green: #1f6f4a;
+    --green-dark: #124a30;
     --green-light: #4fae5a;
     --orange: #f58220;
     --orange-hover: #d96a0c;
@@ -80,7 +80,7 @@
 
   /* Eyebrow / kicker label */
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-green;
+    @apply inline-flex items-center gap-2 rounded-full border border-line bg-white px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-orange;
   }
 
   /* Card surface */
@@ -91,6 +91,31 @@
   /* Subtle glass for navbar */
   .glass {
     @apply bg-white/80 backdrop-blur-md backdrop-saturate-150;
+  }
+
+  /* Dégradés de marque — évitent les aplats de vert "purs".
+     Source de lumière cohérente (émeraude douce venant du haut), base vert
+     forêt qui RESTE verte (pas de virage olive/boueux), profondeur maîtrisée
+     en bas + pointe de chaleur or quasi imperceptible : rendu premium. */
+  .surface-green-dark {
+    background-color: #1a6d48;
+    background-image:
+      /* halo de lumière émeraude — diffuse, centrée en haut */
+      radial-gradient(125% 85% at 50% -12%, rgba(140, 214, 168, 0.32) 0%, rgba(140, 214, 168, 0) 55%),
+      /* chaleur de marque (or), volontairement très discrète, en haut à droite */
+      radial-gradient(70% 60% at 100% 0%, rgba(244, 196, 48, 0.07) 0%, transparent 60%),
+      /* base : dégradé diagonal vert vif → vert forêt (clair mais texte blanc lisible) */
+      linear-gradient(168deg, #2f8c61 0%, #237a52 46%, #1b6745 78%, #155339 100%);
+  }
+
+  .surface-green {
+    background-color: #248a5c;
+    background-image:
+      /* lumière en haut-gauche */
+      radial-gradient(120% 110% at 0% -10%, rgba(160, 225, 185, 0.34) 0%, transparent 55%),
+      /* profondeur douce en bas-droite (reste verte) */
+      radial-gradient(110% 110% at 100% 110%, rgba(15, 74, 48, 0.30) 0%, transparent 55%),
+      linear-gradient(150deg, #36996e 0%, #258a5c 48%, #1c7049 100%);
   }
 }
 

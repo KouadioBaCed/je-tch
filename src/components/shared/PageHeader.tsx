@@ -19,7 +19,7 @@ export function PageHeader({
   align = "left",
 }: PageHeaderProps) {
   return (
-    <section className="relative isolate overflow-hidden bg-green-dark pb-14 pt-28 text-white lg:pb-20 lg:pt-36">
+    <section className="relative isolate overflow-hidden surface-green-dark pb-14 pt-28 text-white lg:pb-20 lg:pt-36">
       <div className="noise-overlay absolute inset-0 -z-10 opacity-[0.04]" />
       <div className="absolute -left-24 top-10 -z-10 size-80 rounded-full bg-green/40 blur-3xl" />
       <div className="absolute -right-16 bottom-0 -z-10 size-72 rounded-full bg-green/30 blur-3xl" />

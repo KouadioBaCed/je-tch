@@ -30,7 +30,15 @@
       "Bash(echo \"EXIT: $?\")",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/)",
       "Bash(curl -s http://localhost:3001/)",
-      "PowerShell(Get-CimInstance *)"
+      "PowerShell(Get-CimInstance *)",
+      "Bash(ls -la senateur.*)",
+      "Bash(node -e \"const fs=require\\('fs'\\);const b=fs.readFileSync\\('senateur.jpeg'\\);if\\(b[0]===0xFF\\){let i=2;while\\(i<b.length\\){if\\(b[i]!==0xFF\\){i++;continue}const m=b[i+1];if\\(m>=0xC0&&m<=0xCF&&m!==0xC4&&m!==0xC8&&m!==0xCC\\){console.log\\('senateur.jpeg dims: '+b.readUInt16BE\\(i+7\\)+'x'+b.readUInt16BE\\(i+5\\)\\);break}i+=2+b.readUInt16BE\\(i+2\\)}}\")",
+      "PowerShell(Get-Item *)",
+      "Bash(curl -sL -m 30 -w \"\\\\n[HTTP %{http_code}]\\\\n\" -X POST \"https://script.google.com/macros/s/AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw/exec\" -H \"Content-Type: application/json\" -d '{\"type\":\"producteur\",\"fullName\":\"TEST DIAGNOSTIC \\(a supprimer\\)\",\"phone\":\"+225 0700000000\",\"locality\":\"Kong\",\"profile\":\"cooperative\",\"filiere\":\"anacarde\",\"tonnage\":\"1\",\"message\":\"test webhook\",\"ref\":\"TEST-DIAG\",\"submittedAt\":\"2026-05-23T12:00:00Z\",\"secret\":\"AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw\"}')",
+      "Bash(curl -s -m 30 -o /dev/null -w \"code: %{http_code}\\\\nredirect: %{redirect_url}\\\\n\" -X POST \"https://script.google.com/macros/s/AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw/exec\" -H \"Content-Type: application/json\" -d '{\"type\":\"producteur\",\"fullName\":\"TEST DIAG2 \\(a supprimer\\)\",\"phone\":\"+2250700000000\",\"locality\":\"Kong\",\"profile\":\"cooperative\",\"filiere\":\"anacarde\",\"secret\":\"AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw\"}')",
+      "PowerShell(npm run *)",
+      "PowerShell(taskkill *)",
+      "Bash(node *)"
     ]
   }
 }

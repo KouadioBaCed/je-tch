@@ -51,7 +51,7 @@ export default function FaqPage() {
             <Accordion items={items} />
           </Reveal>
 
-          <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-2xl border border-line bg-green p-8 text-center text-white shadow-soft-green sm:p-10">
+          <Reveal delay={0.1} className="mt-12 overflow-hidden rounded-2xl border border-line surface-green p-8 text-center text-white shadow-soft-green sm:p-10">
             <h2 className="text-balance font-heading text-2xl font-extrabold">Vous avez une autre question ?</h2>
             <p className="mx-auto mt-2 max-w-md text-pretty text-white/85">
               Notre équipe est disponible sur WhatsApp pour vous accompagner dans votre inscription.

@@ -9,7 +9,7 @@ import { fadeUp, scaleIn, staggerContainer, viewportOnce } from "@/lib/motion";
 
 export function Region() {
   return (
-    <section className="relative isolate overflow-hidden bg-green-dark text-white section" aria-labelledby="region-title">
+    <section className="relative isolate overflow-hidden surface-green-dark text-white section" aria-labelledby="region-title">
       <div className="noise-overlay absolute inset-0 -z-10 opacity-[0.04]" />
       <div className="absolute -right-32 top-0 -z-10 size-[28rem] rounded-full bg-green/30 blur-3xl" />
 

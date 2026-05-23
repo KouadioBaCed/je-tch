@@ -23,9 +23,11 @@ const config: Config = {
     extend: {
       colors: {
         // Charte graphique officielle JE-TCH 2026
+        // Vert de marque volontairement désaturé (vert forêt) plutôt qu'un
+        // vert "pur" : plus élégant et plus reposant sur les grands aplats.
         green: {
-          DEFAULT: "#0D6B3D",
-          dark: "#064B2A",
+          DEFAULT: "#1F6F4A",
+          dark: "#124A30",
           light: "#4FAE5A",
           50: "#EAF5EE",
           100: "#D2EBDB",
@@ -48,7 +50,7 @@ const config: Config = {
         background: "#FFFFFF",
         foreground: "#1E1E1E",
         primary: {
-          DEFAULT: "#0D6B3D",
+          DEFAULT: "#1F6F4A",
           foreground: "#FFFFFF",
         },
         secondary: {
@@ -61,7 +63,7 @@ const config: Config = {
         },
         border: "#DDE5DF",
         input: "#DDE5DF",
-        ring: "#0D6B3D",
+        ring: "#1F6F4A",
       },
       fontFamily: {
         heading: ["var(--font-montserrat)", "system-ui", "sans-serif"],
@@ -77,12 +79,12 @@ const config: Config = {
       boxShadow: {
         soft: "0 4px 20px rgba(0,0,0,0.08)",
         "soft-lg": "0 12px 40px rgba(0,0,0,0.10)",
-        "soft-green": "0 12px 40px rgba(13,107,61,0.18)",
-        glow: "0 0 0 1px rgba(13,107,61,0.08), 0 10px 30px rgba(13,107,61,0.12)",
+        "soft-green": "0 12px 40px rgba(31,111,74,0.18)",
+        glow: "0 0 0 1px rgba(31,111,74,0.08), 0 10px 30px rgba(31,111,74,0.12)",
       },
       backgroundImage: {
         "grid-soft":
-          "linear-gradient(to right, rgba(13,107,61,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(13,107,61,0.05) 1px, transparent 1px)",
+          "linear-gradient(to right, rgba(31,111,74,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(31,111,74,0.05) 1px, transparent 1px)",
       },
       maxWidth: {
         prose: "68ch",

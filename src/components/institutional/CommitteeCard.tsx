@@ -47,8 +47,8 @@ export function CommitteeCard({ person, className }: CommitteeCardProps) {
 
       <div className="min-w-0">
         {Icon && (
-          <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-gold">
-            <Icon className="size-3.5" />
+          <span className="mb-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3 py-1.5 text-[0.7rem] font-semibold uppercase leading-tight tracking-[0.14em] text-gold">
+            <Icon className="size-3.5 shrink-0" />
             {person.role}
           </span>
         )}
