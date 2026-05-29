@@ -61,7 +61,7 @@ export default function PressePage() {
             </div>
             <p className="mt-4 max-w-3xl text-pretty leading-relaxed text-white/90">
               Les Journées de l'Entreposage Tchologo 2026 (JE-TCH) sont un événement institutionnel et agricole
-              majeur de Côte d'Ivoire. Du 30 septembre au 3 octobre 2026, à Kong, Ouangolodougou et Ferkessédougou,
+              majeur de Côte d'Ivoire. Du 30 septembre au 2 octobre 2026, à Kong, Ouangolodougou et Ferkessédougou,
               l'événement vise à faire de l'entreposage un levier de richesse : réduire les pertes post-récolte
               (30 % de la production, soit 90 milliards FCFA par an), démocratiser le warrantage et connecter
               200 coopératives aux grands acheteurs et financeurs.

@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { FeaturedDignitary } from "@/components/institutional/FeaturedDignitary";
 import { DignitaryCard } from "@/components/institutional/DignitaryCard";
+import { PartnerCard } from "@/components/institutional/PartnerCard";
 import { CommitteeCard } from "@/components/institutional/CommitteeCard";
-import { DIGNITARIES, SECONDARY_DIGNITARY, COMMITTEE, EVENT } from "@/lib/data";
+import { DIGNITARIES, SECONDARY_MINISTER, SECONDARY_DIGNITARY, PARTNERS, STEERING_COMMITTEE, COMMITTEE, EVENT } from "@/lib/data";
 import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 /**
@@ -23,18 +24,15 @@ export function Authorities() {
 
   return (
     <section
-      className="relative isolate overflow-hidden surface-green-dark text-white section"
+      className="relative isolate overflow-hidden bg-green-dark text-white section"
       aria-labelledby="authorities-title"
     >
-      {/* Ambiance */}
-      <div aria-hidden className="noise-overlay absolute inset-0 -z-10 opacity-[0.04]" />
-      <div aria-hidden className="absolute -left-40 top-10 -z-10 size-[32rem] rounded-full bg-green/30 blur-3xl" />
-      <div aria-hidden className="absolute -right-32 bottom-0 -z-10 size-[28rem] rounded-full bg-gold/10 blur-3xl" />
-
       <div className="container">
         <SectionHeading
           tone="dark"
           eyebrow="Comité d'honneur & soutien institutionnel"
+          eyebrowClassName="mb-3 border-orange/40 text-base text-orange sm:text-lg"
+          eyebrowDotClassName="bg-orange"
           title={<span id="authorities-title">Un événement porté au plus haut niveau</span>}
           description="Sous l'impulsion des autorités régionales et nationales, JE-TCH 2026 réunit les institutions qui font de l'entreposage agricole une priorité de développement pour le Tchologo et la Côte d'Ivoire."
         />
@@ -50,6 +48,17 @@ export function Authorities() {
           <FeaturedDignitary person={principal} />
         </motion.div>
 
+        {/* Ministre — juste sous la personnalité principale */}
+        <motion.div
+          initial="hidden"
+          whileInView="show"
+          viewport={viewportOnce}
+          variants={staggerContainer(0.15)}
+          className="mt-12 border-t border-white/10 pt-12 lg:mt-16 lg:pt-16"
+        >
+          <FeaturedDignitary person={SECONDARY_MINISTER} variant="secondary" eyebrow={null} />
+        </motion.div>
+
         {/* Numéro deux — le sénateur, juste sous la personnalité principale */}
         <motion.div
           initial="hidden"
@@ -58,10 +67,10 @@ export function Authorities() {
           variants={staggerContainer(0.15)}
           className="mt-12 border-t border-white/10 pt-12 lg:mt-16 lg:pt-16"
         >
-          <FeaturedDignitary person={SECONDARY_DIGNITARY} variant="secondary" />
+          <FeaturedDignitary person={SECONDARY_DIGNITARY} variant="secondary" portraitSide="left" />
         </motion.div>
 
-        {/* Personnalités institutionnelles */}
+        {/* Élus locaux */}
         <div className="mt-16 lg:mt-24">
           <motion.p
             initial="hidden"
@@ -70,7 +79,7 @@ export function Authorities() {
             variants={fadeUp}
             className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xl"
           >
-            Personnalités institutionnelles
+            Élus locaux
           </motion.p>
           <motion.div
             initial="hidden"
@@ -85,6 +94,66 @@ export function Authorities() {
           </motion.div>
         </div>
 
+        {/* Partenaires / Accompagnement technique */}
+        <div className="mt-16 lg:mt-24">
+          <motion.p
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            variants={fadeUp}
+            className="mb-8 text-center text-lg font-semibold uppercase tracking-[0.18em] text-white/70 sm:text-xl"
+          >
+            Partenaires / Accompagnement technique
+          </motion.p>
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            variants={staggerContainer(0.1)}
+            className="flex flex-wrap justify-center gap-5"
+          >
+            {PARTNERS.map((person) => (
+              <PartnerCard key={person.name} person={person} />
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Comité de pilotage */}
+        <div className="mt-20 lg:mt-28">
+          <div
+            aria-hidden
+            className="mb-10 h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent"
+          />
+          <SectionHeading
+            tone="dark"
+            align="left"
+            title="Comité de pilotage"
+            description="L'équipe qui pilote et coordonne l'organisation des Journées de l'Entreposage Tchologo 2026."
+          />
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={viewportOnce}
+            variants={staggerContainer(0.12)}
+            className="mt-10 grid items-start gap-6 lg:grid-cols-2"
+          >
+            {STEERING_COMMITTEE.map((person, i) => {
+              const loneLast =
+                i === STEERING_COMMITTEE.length - 1 && STEERING_COMMITTEE.length % 2 === 1;
+              return (
+                <CommitteeCard
+                  key={person.name}
+                  person={person}
+                  className={cn(
+                    i % 2 === 1 && "lg:mt-12",
+                    loneLast && "lg:col-span-2 lg:mx-auto lg:w-[calc(50%-0.75rem)]"
+                  )}
+                />
+              );
+            })}
+          </motion.div>
+        </div>
+
         {/* Commissariat Général & Comité Scientifique */}
         <div className="mt-20 lg:mt-28">
           <div
@@ -94,7 +163,6 @@ export function Authorities() {
           <SectionHeading
             tone="dark"
             align="left"
-            eyebrow="Commissariat Général & Comité Scientifique"
             title="La rigueur au service de l'événement"
             description="Une organisation pilotée avec exigence, adossée à une expertise scientifique reconnue."
           />

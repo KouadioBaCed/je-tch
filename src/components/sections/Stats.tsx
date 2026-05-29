@@ -16,8 +16,8 @@ export function Stats() {
           variants={staggerContainer(0.08)}
           className="mx-auto mb-12 max-w-2xl text-center"
         >
-          <motion.span variants={fadeUp} className="eyebrow">
-            <span className="size-1.5 rounded-full bg-orange" />
+          <motion.span variants={fadeUp} className="eyebrow text-base text-green">
+            <span className="size-1.5 rounded-full bg-green" />
             Le constat
           </motion.span>
           <motion.h2

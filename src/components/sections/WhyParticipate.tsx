@@ -36,6 +36,8 @@ export function WhyParticipate() {
       <div className="container">
         <SectionHeading
           eyebrow="Pourquoi participer"
+          eyebrowClassName="text-base text-green sm:text-lg"
+          eyebrowDotClassName="bg-green"
           title={<span id="why-title">Une opportunité concrète, quel que soit votre rôle</span>}
           description="Producteurs, acheteurs, financiers ou institutions : chacun repart avec des résultats tangibles."
         />

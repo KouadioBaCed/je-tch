@@ -10,10 +10,12 @@ import {
   Briefcase,
   Building2,
   Cpu,
+  Globe,
   GraduationCap,
   Handshake,
   Landmark,
   Leaf,
+  Megaphone,
   PackageCheck,
   ShieldCheck,
   Sprout,
@@ -32,14 +34,18 @@ export const EVENT = {
   datesLabel: "30 SEPT → 2 OCT 2026",
   /** ISO start used for the live countdown (Africa/Abidjan, UTC). */
   startISO: "2026-09-30T08:00:00Z",
-  endISO: "2026-10-03T18:00:00Z",
+  endISO: "2026-10-02T18:00:00Z",
   citiesLabel: "Kong · Ouangolodougou · Ferkessédougou",
   cities: ["Kong", "Ouangolodougou", "Ferkessédougou"],
   region: "Région du Tchologo",
   country: "Côte d'Ivoire",
   entry: "Entrée gratuite pour les producteurs",
-  whatsapp: "+225 00 00 00 00",
-  whatsappHref: "https://wa.me/2250000000000",
+  whatsapp: "+225 05 74 74 67 14",
+  whatsappHref: "https://wa.me/2250574746714",
+  phones: [
+    { label: "+225 07 09 59 03 27", href: "tel:+2250709590327" },
+    { label: "+225 07 07 91 91 26", href: "tel:+2250707919126" },
+  ],
   email: "contact@je-tch2026.ci",
   url: "https://je-tch2026.ci",
 } as const;
@@ -67,10 +73,10 @@ export interface Stat {
 
 export const STATS: Stat[] = [
   {
-    value: 300000,
+    value: 180000,
     suffix: " t",
     label: "de production par an",
-    sublabel: "1ère région productrice d'anacarde de Côte d'Ivoire",
+    sublabel: "6ème rang des régions productrices d'anacarde de Côte d'Ivoire",
     icon: Sprout,
   },
   {
@@ -146,7 +152,7 @@ export const AUDIENCES: AudienceBenefit[] = [
       },
       {
         title: "Réduisez vos coûts",
-        text: "Achetez bord-champ un stock déjà trié, séché et certifié.",
+        text: "Achetez auprès d'entrepôts certifiés des produits bien stockés, déjà triés, bien séchés.",
       },
       {
         title: "Impact RSE",
@@ -162,7 +168,7 @@ export const AUDIENCES: AudienceBenefit[] = [
     points: [
       {
         title: "Nouveau marché",
-        text: "Le warrantage sur anacarde et mangue est le crédit le moins risqué.",
+        text: "Le warrantage sur la noix d'anacarde et les autres produits à forte valeur marchande, est le crédit le moins risqué.",
       },
       {
         title: "Clients qualifiés",
@@ -170,7 +176,7 @@ export const AUDIENCES: AudienceBenefit[] = [
       },
       {
         title: "Visibilité",
-        text: "Devenez la banque de référence de la filière dans le Nord.",
+        text: "Devenez la banque de référence des filières agricoles dans le Nord.",
       },
     ],
   },
@@ -182,7 +188,7 @@ export const AUDIENCES: AudienceBenefit[] = [
     points: [
       {
         title: "Emploi local",
-        text: "1 entrepôt certifié = 5 emplois directs dans votre commune.",
+        text: "1 entrepôt certifié = emplois directs, y compris pour les jeunes et les femmes, dans votre commune.",
       },
       {
         title: "Recettes fiscales",
@@ -367,10 +373,8 @@ export const PRODUCTS: Product[] = [
 /* -------------------------------------------------------------------------- */
 
 export interface ProgramSlot {
-  time: string;
   title: string;
-  desc: string;
-  tag: "Officiel" | "Panel" | "Atelier" | "B2B" | "Terrain" | "Networking";
+  detail?: string;
 }
 
 export interface ProgramDay {
@@ -382,6 +386,13 @@ export interface ProgramDay {
   slots: ProgramSlot[];
 }
 
+/** Activités communes à chaque journée (Kong, Ouangolodougou, Ferkessédougou). */
+const COMMON_ACTIVITIES: ProgramSlot[] = [
+  { title: "Cérémonie d'ouverture", detail: "Allocutions & prestation culturelle" },
+  { title: "Présentation des produits du terroir" },
+  { title: "Atelier de sensibilisation et formation / Panel thématique" },
+];
+
 export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-1",
@@ -389,13 +400,7 @@ export const PROGRAM: ProgramDay[] = [
     date: "Mer. 30 sept. 2026",
     city: "Kong",
     theme: "Ouverture & enjeux du stockage",
-    slots: [
-      { time: "08:30", title: "Accueil & enregistrement", desc: "Remise des badges, café d'accueil et orientation des délégations.", tag: "Networking" },
-      { time: "10:00", title: "Cérémonie d'ouverture officielle", desc: "Allocutions des autorités, du Conseil Coton-Anacarde et des partenaires institutionnels.", tag: "Officiel" },
-      { time: "11:30", title: "Panel — Le constat : 90 milliards FCFA perdus", desc: "État des lieux des pertes post-récolte et de l'enjeu économique régional.", tag: "Panel" },
-      { time: "14:30", title: "Atelier — Normes & modèles d'entrepôts", desc: "Présentation des modèles adaptés au climat du Nord.", tag: "Atelier" },
-      { time: "16:30", title: "Cocktail de networking", desc: "Rencontres informelles entre coopératives, acheteurs et institutions.", tag: "Networking" },
-    ],
+    slots: [...COMMON_ACTIVITIES],
   },
   {
     id: "jour-2",
@@ -403,24 +408,18 @@ export const PROGRAM: ProgramDay[] = [
     date: "Jeu. 1 oct. 2026",
     city: "Ouangolodougou",
     theme: "Financement, marché & B2B",
-    slots: [
-      { time: "09:00", title: "Panel — Démocratiser le warrantage", desc: "Banques et assureurs : comment financer le stock des coopératives.", tag: "Panel" },
-      { time: "10:30", title: "Rencontres B2B — Acheteurs & coopératives", desc: "Sessions de contractualisation sur stock certifié.", tag: "B2B" },
-      { time: "14:00", title: "Atelier — Traçabilité & solutions digitales", desc: "Outils de gestion des stocks et d'accès au marché.", tag: "Atelier" },
-      { time: "16:00", title: "Salon des équipements", desc: "Bâches, palettes, séchoirs, capteurs — démonstrations en direct.", tag: "Terrain" },
-    ],
+    slots: [...COMMON_ACTIVITIES],
   },
   {
     id: "jour-3",
     dayLabel: "Jour 3",
-    date: "Ven. 3 oct. 2026",
+    date: "Ven. 2 oct. 2026",
     city: "Ferkessédougou",
     theme: "Terrain, gouvernance & feuille de route",
     slots: [
-      { time: "09:00", title: "Visite d'entrepôts modèles", desc: "Démonstration terrain des bonnes pratiques de conservation.", tag: "Terrain" },
-      { time: "11:00", title: "Cadre de concertation État – secteur privé", desc: "Adoption de la feuille de route Tchologo 2026-2028.", tag: "Officiel" },
-      { time: "14:30", title: "Signature des engagements", desc: "Contrats d'achat et intentions de financement officialisés.", tag: "B2B" },
-      { time: "16:00", title: "Clôture & restitution", desc: "Synthèse des résultats des trois journées.", tag: "Officiel" },
+      ...COMMON_ACTIVITIES,
+      { title: "Adoption de la feuille de route" },
+      { title: "Cérémonie de clôture", detail: "Allocutions & prestation culturelle" },
     ],
   },
 ];
@@ -458,6 +457,10 @@ export interface Dignitary {
   logo?: string;
   /** Texte alternatif / infobulle du sceau institutionnel. */
   logoAlt?: string;
+  /** Sigle/titre affiché sous le logo (comme le nom à droite). */
+  logoTitle?: string;
+  /** Légende affichée sous le logo (texte porté par le logo). */
+  logoCaption?: string;
 }
 
 /** Personnalités institutionnelles — la première (featured) est mise en avant. */
@@ -465,7 +468,7 @@ export const DIGNITARIES: Dignitary[] = [
   {
     name: "Téné Birahima Ouattara",
     role: "Vice-Premier Ministre · Président du Conseil Régional du Tchologo",
-    image: "/presentation/premier_ministre.jpg",
+    image: "/presentation/premier_ministre.png",
     featured: true,
     statement:
       "Sous son impulsion, le Tchologo fait de la modernisation de l'entreposage agricole une priorité de développement régional et national.",
@@ -475,17 +478,17 @@ export const DIGNITARIES: Dignitary[] = [
   {
     name: "M.Abdramane Berté",
     role: "Maire de la Commune de Kong",
-    image: "/presentation/abdramane_berte.jpg",
+    image: "/presentation/abdramane_berte.png",
   },
   {
     name: "M.Moussa Toungara",
     role: "Maire de la Commune de Ouangolodougou",
-    image: "/presentation/moussa_toungara.jpeg",
+    image: "/presentation/moussa_toungara.png",
   },
   {
     name: "M.Kaweli Ouattara",
     role: "Maire de la Commune de Ferkessédougou",
-    image: "/presentation/keweli_ouattara.jpg",
+    image: "/presentation/keweli_ouattara.png",
   },
   {
     name: "M.Alassane Ouattara",
@@ -495,23 +498,41 @@ export const DIGNITARIES: Dignitary[] = [
   {
     name: "M.Mamadou Ouattara",
     role: "Maire de la Commune de Diawala",
-    image: "/presentation/mamadou_ouat.jpeg",
+    image: "/presentation/mamadou_ouat.png",
   },
   {
-    name: "Pr. Koffi Justin",
-    role: "Directeur Général de l'ARRE-CI",
-    image: "/presentation/pr_koffi.jpeg",
-    logo: "/logo/arre_ci.jpeg",
-    logoAlt: "Logo officiel de l'ARRE-CI",
+    name: "M.Teneyoumon Coulibaly",
+    role: "Maire de la Commune de Koumbala",
+    image: "/presentation/teneyoumon_coulibaly.png",
   },
 ];
+
+/** Ministre mis en avant juste sous la personnalité principale. */
+export const SECONDARY_MINISTER: Dignitary = {
+  name: "Professeur Adama Diawara",
+  role: "Ministre de l'Enseignement Supérieur et de la Recherche Scientifique",
+  image: "/presentation/diawara.jpg",
+};
 
 /** Numéro deux institutionnel — mis en avant juste sous la personnalité principale. */
 export const SECONDARY_DIGNITARY: Dignitary = {
   name: "Sénateur Traoré Bamoudien",
   role: "Vice-Président du Conseil Régional du Tchologo",
-  image: "/presentation/senateur.jpeg",
+  image: "/presentation/senateur.png",
 };
+
+/** Partenaires & accompagnement technique. */
+export const PARTNERS: Dignitary[] = [
+  {
+    name: "Pr. Koffi Justin",
+    role: "Directeur Général de l'Autorité de Régulation du Système de Récépissés d'Entreposage de la Côte d'Ivoire (A.R.R.E-CI)",
+    image: "/presentation/pr_koffi.jpeg",
+    logo: "/logo/arre_ci.jpeg",
+    logoAlt: "Logo officiel de l'A.R.R.E-CI",
+    logoTitle: "ARRE-CI",
+    logoCaption: "Autorité de Régulation du Système de Récépissés d'Entreposage",
+  },
+];
 
 /** Commissariat Général & Comité Scientifique. */
 export const COMMITTEE: Dignitary[] = [
@@ -520,7 +541,7 @@ export const COMMITTEE: Dignitary[] = [
     // il est volontairement dupliqué ici avec une fonction d'organisation.
     name: "Moussa Toungara",
     role: "Chargé des relations avec les cadres du Tchologo",
-    image: "/presentation/moussa_toungara.jpeg",
+    image: "/presentation/moussa_toungara.png",
     icon: Handshake,
     statement:
       "Mobilise et fédère les cadres et les forces vives du Tchologo autour de l'événement.",
@@ -534,12 +555,113 @@ export const COMMITTEE: Dignitary[] = [
       "Pilote l'organisation générale et la coordination institutionnelle des trois journées.",
   },
   {
+    name: "M. Issam EZZEDINE",
+    role: "Commissaire Général adjoint",
+    image: "/presentation/ezzedine.jpeg",
+    icon: Briefcase,
+  },
+  {
     name: "Mamadou Ouattara HK",
     role: "Président du Comité Scientifique",
     image: "/presentation/mamadou_ouattara.jpeg",
     icon: GraduationCap,
     statement:
       "Garantit la rigueur des contenus, des panels et des recommandations techniques de l'événement.",
+  },
+  {
+    name: "M. KONE Aboubakar",
+    role: "Vice-Président du Comité Scientifique",
+    image: "/presentation/kone_aboubakar.png",
+    icon: Sprout,
+    statement: "Agronome, consultant international FAO (ONU).",
+  },
+  {
+    name: "M. MOHAMED Ben Moulaye",
+    role: "Télécom & Transformation Digitale",
+    image: "/presentation/mohamed_ben.jpg",
+    icon: Cpu,
+  },
+  {
+    name: "M. HEIN Mikel",
+    role: "Ingénierie des ouvrages",
+    image: "/presentation/hein_mikel.jpg",
+    icon: Building2,
+  },
+  {
+    name: "Mme BORGES Filomena Lopes",
+    role: "Relations Pays Lusophones",
+    image: "/presentation/borges_filomena.png",
+    icon: Globe,
+  },
+  {
+    name: "Mme OUATTARA Awa",
+    role: "Relations Institutionnelles",
+    image: "/presentation/ouattara_awa.png",
+    icon: Landmark,
+  },
+  {
+    name: "Mamadou Traoré",
+    role: "Direction Communication",
+    image: "/presentation/mamadou_traore.jpeg",
+    icon: Megaphone,
+  },
+  {
+    name: "Ousmane Sidiane",
+    role: "Finance",
+    image: "/presentation/ousmane_sidiane.jpeg",
+    icon: Banknote,
+  },
+  {
+    name: "Addy Touré",
+    role: "Direction Logistique",
+    image: "/presentation/addy_toure.png",
+    icon: Truck,
+  },
+  {
+    name: "Keita Badra Ali",
+    role: "",
+    image: "/presentation/keita_badra_ali.jpeg",
+  },
+  {
+    name: "Mme Juslène DURREL",
+    role: "Chargée des Relations Sous-Régionales",
+    image: "/presentation/juslene_durrel.jpeg",
+    icon: Globe,
+  },
+];
+
+/** Comité de pilotage. */
+export const STEERING_COMMITTEE: Dignitary[] = [
+  {
+    name: "Moussa Toungara",
+    role: "Maire de Ouangolodougou · Président du Comité de Pilotage",
+    image: "/presentation/moussa_toungara.png",
+    icon: Landmark,
+  },
+  {
+    name: "Pr. Koffi Justin",
+    role: "",
+    image: "/presentation/pr_koffi.jpeg",
+  },
+  {
+    name: "Adonis HOUANGO",
+    role: "",
+    image: "/presentation/adonis_image.png",
+  },
+  {
+    name: "Traoré Isahq Touramann",
+    role: "",
+    image: "/presentation/traore_issa.jpeg",
+  },
+  {
+    name: "Mamadou Ouattara HK",
+    role: "",
+    image: "/presentation/mamadou_ouattara.jpeg",
+  },
+  {
+    name: "M. KONE Aboubakar",
+    role: "",
+    image: "/presentation/kone_aboubakar.png",
   },
 ];
 
@@ -558,12 +680,49 @@ export const PARTNER_CATEGORIES: PartnerCategory[] = [
   { label: "Conseil Coton-Anacarde", icon: Leaf, examples: ["Régulateur de filière"] },
 ];
 
+export interface PartnerLogo {
+  /** Chemin local sous /public. */
+  src: string;
+  /** Nom lisible — sert au texte alternatif (accessibilité). */
+  name: string;
+}
+
+/**
+ * Mur des partenaires & sponsors. L'ORDRE D'AFFICHAGE = l'ordre de ce tableau ;
+ * pour réordonner, il suffit de déplacer une ligne.
+ * Regroupés : ministères → institutionnel/financier → médias → entreprises.
+ */
+export const PARTNER_LOGOS: PartnerLogo[] = [
+  { src: "/partenaires/minister_one.jpg", name: "Ministère partenaire" },
+  { src: "/partenaires/minister_two.jpg", name: "Ministère partenaire" },
+  { src: "/partenaires/minister_three.jpg", name: "Ministère partenaire" },
+  { src: "/partenaires/minister_four.jpg", name: "Ministère partenaire" },
+  { src: "/partenaires/minister_five.jpg", name: "Ministère partenaire" },
+  { src: "/partenaires/arte_one.jpg", name: "Arte One" },
+  { src: "/partenaires/mangue.png", name: "Mangue" },
+  { src: "/logo/anarcade.jpg", name: "OIA Anacarde" },
+  { src: "/logo/coton.jpg", name: "Conseil Coton Anacarde Karité" },
+  { src: "/partenaires/care_or.jpg", name: "Groupe Carré d'Or" },
+  { src: "/partenaires/lonaci.jpg", name: "LONACI" },
+  { src: "/partenaires/sama.jpg", name: "SAMA" },
+  { src: "/partenaires/corolay.jpg", name: "Corolay" },
+  { src: "/partenaires/divoholding.jpg", name: "Divo Holding" },
+  { src: "/partenaires/mhiGI.jpg", name: "MHI-GI" },
+  { src: "/partenaires/ccip.jpg", name: "CCI-CI" },
+  { src: "/partenaires/etv.jpg", name: "ETV" },
+  { src: "/partenaires/bni.png", name: "BNI" },
+  { src: "/partenaires/atlantic_banc.jpg", name: "Banque Atlantique" },
+  { src: "/partenaires/rti.jpg", name: "RTI" },
+  { src: "/partenaires/nci.jpg", name: "NCI" },
+  { src: "/partenaires/life_tv.jpg", name: "Life TV" },
+];
+
 /* -------------------------------------------------------------------------- */
 /* Région du Tchologo                                                         */
 /* -------------------------------------------------------------------------- */
 
 export const REGION_HIGHLIGHTS = [
-  { icon: Sprout, title: "1ère région anacarde", text: "Plus de 300 000 tonnes produites chaque année." },
+  { icon: Sprout, title: "Région productrice d'anacarde", text: "Plus de 180 000 tonnes de noix brutes d'anacarde produites chaque année." },
   { icon: Truck, title: "Corridor stratégique", text: "Hub logistique sur l'axe Abidjan – Bamako – Ouagadougou." },
   { icon: Building2, title: "Trois pôles urbains", text: "Kong, Ouangolodougou et Ferkessédougou." },
   { icon: Leaf, title: "Filières diversifiées", text: "Anacarde, mangue, coton, maïs, karité, igname." },
@@ -592,7 +751,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: "Quand et où se déroulent les Journées ?",
-    a: "Du 30 septembre au 3 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
+    a: "Du 30 septembre au 2 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
   },
   {
     q: "Qui peut participer ?",
@@ -626,7 +785,7 @@ export const FAQ: FaqItem[] = [
 
 export const PRESS_FACTS = [
   { label: "Édition", value: "1ère édition — 2026" },
-  { label: "Dates", value: "30 sept. → 3 oct. 2026" },
+  { label: "Dates", value: "30 sept. → 2 oct. 2026" },
   { label: "Lieu", value: "Kong · Ouangolodougou · Ferkessédougou" },
   { label: "Participants attendus", value: "1 500+" },
   { label: "Filières", value: "Anacarde, mangue, coton, maïs, karité, igname" },

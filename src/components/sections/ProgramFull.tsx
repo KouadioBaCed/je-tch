@@ -2,20 +2,10 @@
 
 import * as React from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { MapPin, Clock } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { PROGRAM, type ProgramSlot } from "@/lib/data";
+import { MapPin } from "lucide-react";
+import { PROGRAM } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { EASE, fadeUp, staggerContainer } from "@/lib/motion";
-
-const TAG_VARIANT: Record<ProgramSlot["tag"], React.ComponentProps<typeof Badge>["variant"]> = {
-  Officiel: "green",
-  Panel: "orange",
-  Atelier: "gold",
-  B2B: "solid",
-  Terrain: "green",
-  Networking: "outline",
-};
 
 export function ProgramFull() {
   const [active, setActive] = React.useState(0);
@@ -69,18 +59,16 @@ export function ProgramFull() {
             variants={staggerContainer(0.08)}
             className="relative ml-3 border-l-2 border-dashed border-line pl-6 sm:ml-4 sm:pl-8"
           >
-            {day.slots.map((slot) => (
+            {day.slots.map((slot, i) => (
               <motion.li key={slot.title} variants={fadeUp} className="relative pb-8 last:pb-0">
-                <span className="absolute -left-[2.1rem] top-1 grid size-7 place-items-center rounded-full border-2 border-green bg-white sm:-left-[2.6rem]">
-                  <Clock className="size-3.5 text-green" />
+                <span className="absolute -left-[2.1rem] top-1 grid size-7 place-items-center rounded-full border-2 border-green bg-white font-heading text-xs font-extrabold tabular-nums text-green sm:-left-[2.6rem]">
+                  {i + 1}
                 </span>
                 <div className="rounded-2xl border border-line bg-white p-5 shadow-soft transition-shadow hover:shadow-soft-lg sm:p-6">
-                  <div className="flex flex-wrap items-center gap-3">
-                    <span className="font-heading text-lg font-extrabold tabular-nums text-green">{slot.time}</span>
-                    <Badge variant={TAG_VARIANT[slot.tag]}>{slot.tag}</Badge>
-                  </div>
-                  <h3 className="mt-2 font-heading text-lg font-bold text-ink">{slot.title}</h3>
-                  <p className="mt-1 text-sm leading-relaxed text-muted">{slot.desc}</p>
+                  <h3 className="font-heading text-lg font-bold text-ink">{slot.title}</h3>
+                  {slot.detail && (
+                    <p className="mt-1 text-sm leading-relaxed text-muted">{slot.detail}</p>
+                  )}
                 </div>
               </motion.li>
             ))}

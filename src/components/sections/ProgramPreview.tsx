@@ -14,6 +14,8 @@ export function ProgramPreview() {
       <div className="container">
         <SectionHeading
           eyebrow="3 jours, 3 villes"
+          eyebrowClassName="text-base text-green sm:text-lg"
+          eyebrowDotClassName="bg-green"
           title={<span id="program-title">Un programme dense, du constat à la signature</span>}
           description="De l'ouverture officielle aux contrats signés sur le terrain — chaque journée a son cap."
         />
@@ -35,8 +37,8 @@ export function ProgramPreview() {
                 <span className="font-heading text-5xl font-extrabold text-green-50">
                   0{i + 1}
                 </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green">
-                  <MapPin className="size-3.5" />
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3.5 py-1 text-sm font-bold text-green">
+                  <MapPin className="size-4" />
                   {day.city}
                 </span>
               </div>
@@ -46,17 +48,21 @@ export function ProgramPreview() {
               <h3 className="mt-1.5 font-heading text-xl font-extrabold text-ink">{day.theme}</h3>
 
               <ul className="mt-5 space-y-3 border-t border-line pt-5">
-                {day.slots.slice(0, 3).map((slot) => (
+                {day.slots.slice(0, 3).map((slot, idx) => (
                   <li key={slot.title} className="flex gap-3 text-sm">
-                    <span className="font-heading font-bold tabular-nums text-green">{slot.time}</span>
+                    <span className="grid size-5 shrink-0 place-items-center rounded-full bg-green-50 font-heading text-xs font-bold tabular-nums text-green">
+                      {idx + 1}
+                    </span>
                     <span className="text-muted">{slot.title}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="mt-auto pt-5 text-sm font-semibold text-green/70">
-                + {day.slots.length - 3} autres temps forts
-              </div>
+              {day.slots.length > 3 && (
+                <div className="mt-auto pt-5 text-sm font-semibold text-green/70">
+                  + {day.slots.length - 3} autres temps forts
+                </div>
+              )}
             </motion.article>
           ))}
         </motion.div>

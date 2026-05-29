@@ -14,8 +14,10 @@ export function Partners() {
       <div className="container">
         <SectionHeading
           eyebrow="Écosystème & partenaires"
+          eyebrowClassName="text-base text-green sm:text-lg"
+          eyebrowDotClassName="bg-green"
           title={<span id="partners-title">Tout l'écosystème réuni au même endroit</span>}
-          description="Acheteurs, banques, assureurs, fournisseurs, institutions : les acteurs qui font bouger la filière."
+          description="Acheteurs, banques, assureurs, fournisseurs, institutions : les acteurs qui font bouger les filières agricoles."
         />
 
         <motion.div

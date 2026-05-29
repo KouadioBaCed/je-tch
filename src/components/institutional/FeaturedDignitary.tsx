@@ -21,6 +21,16 @@ interface FeaturedDignitaryProps {
    * sans badges, pour s'inscrire juste sous la personnalité principale.
    */
   variant?: "primary" | "secondary";
+  /**
+   * Côté du portrait pour la variante `secondary`.
+   * Par défaut `right` (miroir) ; `left` pour l'aligner comme la principale.
+   */
+  portraitSide?: "left" | "right";
+  /**
+   * Libellé du badge au-dessus du nom. `null` masque le badge.
+   * Par défaut : « Comité d'honneur » (primary) / « Vice-présidence régionale » (secondary).
+   */
+  eyebrow?: string | null;
 }
 
 /**
@@ -28,15 +38,20 @@ interface FeaturedDignitaryProps {
  * Disposition asymétrique avec halo or, anneau et zoom au survol ;
  * les deux blocs s'animent en cascade depuis le conteneur parent.
  */
-export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDignitaryProps) {
+export function FeaturedDignitary({ person, variant = "primary", portraitSide = "right", eyebrow }: FeaturedDignitaryProps) {
   const isSecondary = variant === "secondary";
+  const portraitLeft = isSecondary && portraitSide === "left";
+  const badgeLabel =
+    eyebrow !== undefined ? eyebrow : isSecondary ? "Vice-présidence régionale" : "Comité d'honneur";
 
   return (
     <div
       className={cn(
         "relative grid items-center gap-8",
         isSecondary
-          ? "lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:gap-12"
+          ? portraitLeft
+            ? "lg:grid-cols-[minmax(0,0.72fr)_minmax(0,1fr)] lg:gap-12"
+            : "lg:grid-cols-[minmax(0,1fr)_minmax(0,0.72fr)] lg:gap-12"
           : "lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1fr)] lg:gap-14"
       )}
     >
@@ -45,18 +60,14 @@ export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDigni
         variants={scaleIn}
         className={cn(
           "group relative mx-auto w-full lg:mx-0",
-          isSecondary ? "max-w-xs lg:order-2 lg:ml-auto" : "max-w-sm"
+          isSecondary
+            ? portraitLeft
+              ? "max-w-xs lg:order-1 lg:mr-auto"
+              : "max-w-xs lg:order-2 lg:ml-auto"
+            : "max-w-sm"
         )}
       >
-        {/* Halo doré — plus discret pour le numéro deux */}
-        <div
-          aria-hidden
-          className={cn(
-            "absolute -inset-4 -z-10 rounded-[2.25rem] blur-2xl transition-opacity duration-700 group-hover:opacity-100",
-            isSecondary ? "bg-gold/12 opacity-60" : "bg-gold/20 opacity-70"
-          )}
-        />
-        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/15 shadow-soft-lg ring-1 ring-gold/30">
+        <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] border border-white/15">
           <Image
             src={person.image}
             alt={`Portrait officiel de ${person.name}, ${person.role}`}
@@ -69,14 +80,10 @@ export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDigni
             quality={90}
             className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
           />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-green-dark/85 via-green-dark/15 to-transparent"
-          />
         </div>
 
         {!isSecondary && (
-          <figcaption className="absolute left-4 top-0 z-10 -translate-y-full">
+          <figcaption className="absolute left-4 -top-3 z-10 -translate-y-full">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-gold/40 bg-green-dark/70 px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-gold backdrop-blur-md">
               <Sparkles className="size-3.5" />
               Personnalité d'honneur
@@ -88,7 +95,7 @@ export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDigni
         {person.logo && (
           <div
             title={person.logoAlt}
-            className="absolute -bottom-5 -right-3 grid size-20 place-items-center rounded-2xl border border-white/80 bg-white p-1.5 shadow-soft-lg ring-2 ring-gold/50 transition-transform duration-500 ease-out hover:scale-[1.06] sm:-right-5 sm:size-24"
+            className="absolute -bottom-5 -right-3 grid size-20 place-items-center rounded-2xl border border-white/80 bg-white p-1.5 shadow-soft-lg transition-transform duration-500 ease-out hover:scale-[1.06] sm:-right-5 sm:size-24"
           >
             <Image
               src={person.logo}
@@ -103,11 +110,13 @@ export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDigni
       </motion.figure>
 
       {/* Éditorial */}
-      <motion.div variants={fadeUp} className={cn("relative", isSecondary && "lg:order-1")}>
-        <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white">
-          <span className="size-1.5 rounded-full bg-gold" />
-          {isSecondary ? "Vice-présidence régionale" : "Comité d'honneur"}
-        </span>
+      <motion.div variants={fadeUp} className={cn("relative", isSecondary && (portraitLeft ? "lg:order-2" : "lg:order-1"))}>
+        {badgeLabel && (
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white">
+            <span className="size-1.5 rounded-full bg-gold" />
+            {badgeLabel}
+          </span>
+        )}
         <h3
           className={cn(
             "mt-5 text-balance font-heading font-extrabold leading-[1.1] text-white",
@@ -120,7 +129,7 @@ export function FeaturedDignitary({ person, variant = "primary" }: FeaturedDigni
         </h3>
         <p
           className={cn(
-            "mt-3 text-pretty font-medium text-gold",
+            "mt-3 text-pretty font-medium text-white/80",
             isSecondary ? "text-base lg:text-lg" : "text-lg"
           )}
         >

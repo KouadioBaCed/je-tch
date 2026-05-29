@@ -38,7 +38,12 @@
       "Bash(curl -s -m 30 -o /dev/null -w \"code: %{http_code}\\\\nredirect: %{redirect_url}\\\\n\" -X POST \"https://script.google.com/macros/s/AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw/exec\" -H \"Content-Type: application/json\" -d '{\"type\":\"producteur\",\"fullName\":\"TEST DIAG2 \\(a supprimer\\)\",\"phone\":\"+2250700000000\",\"locality\":\"Kong\",\"profile\":\"cooperative\",\"filiere\":\"anacarde\",\"secret\":\"AKfycbxogZGYnuvRoSxYufoCtOXd0yjUFB1GYk1DIct8SpNGnGVK5EJ8XLCHUrMRLUMzH57qHw\"}')",
       "PowerShell(npm run *)",
       "PowerShell(taskkill *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "PowerShell(npm ls *)",
+      "PowerShell(npm install *)",
+      "PowerShell(git *)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\lenovo\\\\Downloads\\\\site\\\\public\\\\logo\\\\tchologo.jpeg\"\\); \"$\\($img.Width\\) x $\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "PowerShell($ready=$false; for \\($i=0; $i -lt 40; $i++\\) { try { $r = Invoke-WebRequest -Uri \"http://localhost:3009/\" -UseBasicParsing -TimeoutSec 5; if \\($r.StatusCode -eq 200\\) { $ready=$true; break } } catch {}; Start-Sleep -Seconds 2 }; \"ready=$ready\")"
     ]
   }
 }

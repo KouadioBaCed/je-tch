@@ -63,7 +63,7 @@ export default function ExposantsPage() {
         breadcrumb="Exposants & Sponsors"
         eyebrow="Partenariat & visibilité"
         title="Associez votre marque à l'agriculture qui gagne"
-        description="Stands, sponsoring et rencontres B2B qualifiées au cœur de la 1ère région productrice d'anacarde de Côte d'Ivoire."
+        description="Stands, sponsoring et rencontres B2B qualifiées au cœur d'une grande région productrice d'anacarde de Côte d'Ivoire."
       />
 
       {/* Why exhibit */}

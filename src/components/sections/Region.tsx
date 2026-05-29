@@ -22,22 +22,30 @@ export function Region() {
             viewport={viewportOnce}
             variants={staggerContainer(0.1)}
           >
-            <motion.span
-              variants={fadeUp}
-              className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-white"
-            >
-              <span className="size-1.5 rounded-full bg-gold" />
-              La région du Tchologo
-            </motion.span>
+            <motion.div variants={fadeUp} className="mb-6 flex items-center gap-4">
+              <div className="shrink-0 overflow-hidden rounded-2xl bg-white p-2 shadow-soft-lg ring-1 ring-gold/40">
+                <Image
+                  src="/logo/tchologo.jpeg"
+                  alt="Armoiries officielles de la région du Tchologo"
+                  width={1057}
+                  height={1117}
+                  className="size-14 object-contain sm:size-16"
+                />
+              </div>
+              <span className="inline-flex items-center gap-2 rounded-full border border-orange/40 bg-white/10 px-3.5 py-1.5 text-sm font-semibold uppercase tracking-[0.14em] text-orange">
+                <span className="size-1.5 rounded-full bg-orange" />
+                La région du Tchologo
+              </span>
+            </motion.div>
             <motion.h2
               id="region-title"
               variants={fadeUp}
               className="mt-4 text-balance text-3xl font-extrabold leading-tight text-white sm:text-4xl"
             >
-              1ère région productrice d'anacarde de Côte d'Ivoire
+              La région du Tchologo fait partie du bassin de production d'anacarde de Côte d'Ivoire.
             </motion.h2>
             <motion.p variants={fadeUp} className="mt-4 text-pretty leading-relaxed text-white/75">
-              Avec plus de 300 000 tonnes par an — anacarde, mangue, coton, maïs, karité — le Tchologo
+              Avec plus de 180 000 tonnes par an — anacarde, mangue, coton, maïs, karité — le Tchologo
               est un géant agricole. Mais <strong className="font-semibold text-white">30 % de la production
               est perdue chaque année</strong>, faute de stockage adapté.
             </motion.p>
@@ -94,7 +102,7 @@ export function Region() {
           variants={staggerContainer(0.08, 0.1)}
           className="mt-20 lg:mt-24"
         >
-          <motion.p variants={fadeUp} className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-white/55">
+          <motion.p variants={fadeUp} className="text-center text-base font-semibold uppercase tracking-[0.16em] text-orange sm:text-lg">
             Les causes des pertes
           </motion.p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">

@@ -12,7 +12,9 @@ export function Products() {
     <section className="section bg-white" aria-labelledby="products-title">
       <div className="container">
         <SectionHeading
-          eyebrow="Filières du Tchologo"
+          eyebrow="Filières agricoles du Tchologo"
+          eyebrowClassName="text-base text-green sm:text-lg"
+          eyebrowDotClassName="bg-green"
           title={<span id="products-title">Des produits stratégiques à forte valeur</span>}
           description="Anacarde, mangue, coton, maïs, karité, igname : autant de filières dont la valeur se joue dans le stockage."
         />
@@ -37,10 +39,6 @@ export function Products() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-110"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-green-dark/95 via-green-dark/40 to-transparent" />
-              <div className="absolute inset-0 bg-green/0 transition-colors duration-500 group-hover:bg-green/15" />
-
               {/* Stat badge */}
               <div className="absolute right-4 top-4 flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 backdrop-blur-md">
                 <span className="text-base" aria-hidden>{product.emoji}</span>
@@ -48,7 +46,7 @@ export function Products() {
               </div>
 
               {/* Content */}
-              <div className="absolute inset-x-0 bottom-0 p-6">
+              <div className="absolute inset-x-0 bottom-0 bg-green-dark/85 p-6">
                 <h3 className="font-heading text-2xl font-extrabold text-white">{product.name}</h3>
                 <p className="mt-1 text-sm text-white/85">{product.tagline}</p>
                 <div className="mt-3 max-h-0 overflow-hidden opacity-0 transition-all duration-500 group-hover:max-h-24 group-hover:opacity-100">

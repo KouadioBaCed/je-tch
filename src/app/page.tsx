@@ -7,6 +7,7 @@ import { Products } from "@/components/sections/Products";
 import { ProgramPreview } from "@/components/sections/ProgramPreview";
 import { Authorities } from "@/components/sections/Authorities";
 import { Partners } from "@/components/sections/Partners";
+import { PartnerLogos } from "@/components/sections/PartnerLogos";
 import { RegistrationCTA } from "@/components/sections/RegistrationCTA";
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
       <ProgramPreview />
       <Authorities />
       <Partners />
+      <PartnerLogos />
       <RegistrationCTA />
     </>
   );

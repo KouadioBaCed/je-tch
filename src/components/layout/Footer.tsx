@@ -3,13 +3,15 @@ import {
   MapPin,
   Mail,
   Phone,
+  MessageCircle,
   Facebook,
   Linkedin,
   Youtube,
   Send,
 } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import { PoweredByYaswa } from "@/components/brand/PoweredByYaswa";
+import { WhatsAppContactForm } from "@/components/forms/WhatsAppContactForm";
 import { NAV_LINKS, EVENT, PARTNER_CATEGORIES } from "@/lib/data";
 
 const SOCIALS = [
@@ -21,7 +23,7 @@ const SOCIALS = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden surface-green-dark text-white">
+    <footer className="relative overflow-hidden bg-green-dark text-white">
       {/* subtle top accent */}
       <div className="h-1 w-full bg-gradient-to-r from-green-light via-gold to-orange" />
 
@@ -36,8 +38,8 @@ export function Footer() {
             </p>
 
             <div className="mt-7 max-w-md">
-              <p className="mb-2 text-sm font-semibold text-white">Recevez le programme & les actualités</p>
-              <NewsletterForm tone="dark" />
+              <p className="mb-2 text-sm font-semibold text-white">Écrivez-nous directement sur WhatsApp</p>
+              <WhatsAppContactForm tone="dark" />
             </div>
 
             <div className="mt-7 flex items-center gap-2.5">
@@ -97,11 +99,24 @@ export function Footer() {
                 <span>{EVENT.citiesLabel}<br />{EVENT.region}, {EVENT.country}</span>
               </li>
               <li className="flex gap-3">
-                <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
-                <a href={EVENT.whatsappHref} className="transition-colors hover:text-white">
+                <MessageCircle className="mt-0.5 size-4 shrink-0 text-gold" />
+                <a
+                  href={EVENT.whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-white"
+                >
                   {EVENT.whatsapp} (WhatsApp)
                 </a>
               </li>
+              {EVENT.phones.map((p) => (
+                <li key={p.href} className="flex gap-3">
+                  <Phone className="mt-0.5 size-4 shrink-0 text-gold" />
+                  <a href={p.href} className="transition-colors hover:text-white">
+                    {p.label}
+                  </a>
+                </li>
+              ))}
               <li className="flex gap-3">
                 <Mail className="mt-0.5 size-4 shrink-0 text-gold" />
                 <a href={`mailto:${EVENT.email}`} className="transition-colors hover:text-white">
@@ -111,6 +126,8 @@ export function Footer() {
             </ul>
           </div>
         </div>
+
+        <PoweredByYaswa className="mt-16" href="https://yaswa-technologie.netlify.app/" />
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-7 text-center sm:flex-row sm:text-left">
           <p className="text-xs text-white/55">

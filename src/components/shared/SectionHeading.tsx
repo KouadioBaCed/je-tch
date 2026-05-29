@@ -11,6 +11,10 @@ interface SectionHeadingProps {
   align?: "left" | "center";
   tone?: "light" | "dark";
   className?: string;
+  /** Override classes for the eyebrow pill (e.g. size/color). */
+  eyebrowClassName?: string;
+  /** Override classes for the eyebrow dot, to keep it in sync with the text color. */
+  eyebrowDotClassName?: string;
 }
 
 export function SectionHeading({
@@ -20,6 +24,8 @@ export function SectionHeading({
   align = "center",
   tone = "light",
   className,
+  eyebrowClassName,
+  eyebrowDotClassName,
 }: SectionHeadingProps) {
   const isDark = tone === "dark";
   return (
@@ -41,10 +47,11 @@ export function SectionHeading({
             "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-xs font-semibold uppercase tracking-[0.14em]",
             isDark
               ? "border-white/25 bg-white/10 text-white"
-              : "border-line bg-white text-orange"
+              : "border-line bg-white text-orange",
+            eyebrowClassName
           )}
         >
-          <span className={cn("size-1.5 rounded-full", isDark ? "bg-gold" : "bg-orange")} />
+          <span className={cn("size-1.5 rounded-full", isDark ? "bg-gold" : "bg-orange", eyebrowDotClassName)} />
           {eyebrow}
         </motion.span>
       )}

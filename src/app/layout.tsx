@@ -71,7 +71,7 @@ const jsonLd = {
   description:
     "Salon institutionnel et agricole dédié à l'entreposage, au warrantage et à la réduction des pertes post-récolte dans la région du Tchologo.",
   startDate: "2026-09-30",
-  endDate: "2026-10-03",
+  endDate: "2026-10-02",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {

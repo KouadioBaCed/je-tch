@@ -30,4 +30,12 @@ export const staggerContainer = (stagger = 0.1, delay = 0): Variants => ({
   },
 });
 
-export const viewportOnce = { once: true, amount: 0.25 } as const;
+/**
+ * Réglage d'apparition au scroll.
+ * `amount: "some"` (déclenche dès qu'une partie entre dans le viewport) au lieu
+ * d'un seuil de 0.25 : un bloc plus haut que ~4× la hauteur de l'écran ne peut
+ * jamais atteindre 25 % de visibilité, ce qui laissait son contenu bloqué à
+ * `opacity:0` (ex. la longue grille du comité). "some" garantit le déclenchement
+ * quelle que soit la hauteur du bloc.
+ */
+export const viewportOnce = { once: true, amount: "some" } as const;

@@ -31,13 +31,13 @@ export function CommitteeCard({ person, className }: CommitteeCardProps) {
       {/* Barre d'accent */}
       <span
         aria-hidden
-        className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-gold via-orange to-gold opacity-70"
+        className="absolute inset-y-0 left-0 w-1 bg-white/15"
       />
 
-      <div className="relative size-24 shrink-0 overflow-hidden rounded-2xl border border-white/15 ring-1 ring-gold/25 sm:size-28">
+      <div className="relative size-24 shrink-0 overflow-hidden rounded-2xl border border-white/15 sm:size-28">
         <Image
           src={person.image}
-          alt={`Portrait officiel de ${person.name}, ${person.role}`}
+          alt={person.role ? `Portrait officiel de ${person.name}, ${person.role}` : `Portrait officiel de ${person.name}`}
           fill
           sizes="120px"
           quality={85}
@@ -47,7 +47,7 @@ export function CommitteeCard({ person, className }: CommitteeCardProps) {
 
       <div className="min-w-0">
         {Icon && (
-          <span className="mb-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3 py-1.5 text-[0.7rem] font-semibold uppercase leading-tight tracking-[0.14em] text-gold">
+          <span className="mb-3 inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/5 px-3 py-1.5 text-[0.7rem] font-semibold uppercase leading-tight tracking-[0.14em] text-white/80">
             <Icon className="size-3.5 shrink-0" />
             {person.role}
           </span>

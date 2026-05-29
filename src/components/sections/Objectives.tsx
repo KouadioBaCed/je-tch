@@ -12,6 +12,8 @@ export function Objectives() {
       <div className="container">
         <SectionHeading
           eyebrow="Objectifs & ambition"
+          eyebrowClassName="text-base text-green sm:text-lg"
+          eyebrowDotClassName="bg-green"
           title={<span id="objectives-title">Ce que nous voulons accomplir ensemble</span>}
         />
 
@@ -23,9 +25,9 @@ export function Objectives() {
           variants={fadeUp}
           className="mx-auto mt-10 max-w-3xl rounded-2xl border border-line bg-white p-7 shadow-soft sm:p-9"
         >
-          <div className="flex items-center gap-2 text-orange">
+          <div className="flex items-center gap-2 text-green">
             <Target className="size-5" />
-            <span className="text-xs font-bold uppercase tracking-[0.14em]">Objectif général</span>
+            <span className="text-sm font-bold uppercase tracking-[0.14em] sm:text-base">Objectif général</span>
           </div>
           <p className="mt-3 text-pretty text-lg font-medium leading-relaxed text-ink sm:text-xl">
             {OBJECTIVE_GENERAL}
