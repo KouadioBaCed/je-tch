@@ -41,7 +41,14 @@ export function CommitteeCard({ person, className }: CommitteeCardProps) {
           fill
           sizes="120px"
           quality={85}
-          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+          className={cn(
+            "object-cover transition-transform duration-700 ease-out group-hover:scale-105",
+            person.imagePosition === "top"
+              ? "object-top"
+              : person.imagePosition === "bottom"
+                ? "object-bottom"
+                : "object-center"
+          )}
         />
       </div>
 

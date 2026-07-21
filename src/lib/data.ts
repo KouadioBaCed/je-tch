@@ -461,6 +461,8 @@ export interface Dignitary {
   logoTitle?: string;
   /** Légende affichée sous le logo (texte porté par le logo). */
   logoCaption?: string;
+  /** Cadrage du portrait dans les vignettes carrées (défaut : centre). */
+  imagePosition?: "top" | "center" | "bottom";
 }
 
 /** Personnalités institutionnelles — la première (featured) est mise en avant. */
@@ -609,6 +611,7 @@ export const COMMITTEE: Dignitary[] = [
     name: "Mme Awa Ouattara",
     role: "Finance",
     image: "/presentation/ousmane_sidiane.jpeg",
+    imagePosition: "top",
     icon: Banknote,
   },
   {
