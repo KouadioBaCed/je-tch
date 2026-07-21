@@ -606,7 +606,7 @@ export const COMMITTEE: Dignitary[] = [
     icon: Megaphone,
   },
   {
-    name: "Ousmane Sidiane",
+    name: "Mme Awa Ouattara",
     role: "Finance",
     image: "/presentation/ousmane_sidiane.jpeg",
     icon: Banknote,
