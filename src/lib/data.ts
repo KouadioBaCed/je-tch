@@ -635,7 +635,7 @@ export const COMMITTEE: Dignitary[] = [
     icon: Globe,
   },
   {
-    name: "Cédric",
+    name: "M. Cédric Kouadio",
     role: "Développeur & Data Scientist du Commissaire Général",
     image: "/presentation/cedric.jpeg",
     imagePosition: "top",
