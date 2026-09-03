@@ -21,7 +21,7 @@ import { fadeUp, staggerContainer } from "@/lib/motion";
  * qualité, l'autre en vignette ~1px. next/image sert automatiquement en AVIF/WebP.
  */
 const POSTER_ALT =
-  "Les Journées de l'Entreposage Tchologo 2026 — 30 sept au 2 oct 2026, Kong · Ouangolodougou · Ferkessédougou. Entreposage et valorisation des produits agricoles : de la perte post-récolte à la compétitivité numérique.";
+  "Les Journées de l'Entreposage Tchologo 2026 — 15 au 17 octobre 2026, Kong · Ouangolodougou · Ferkessédougou. Entreposage et valorisation des produits agricoles : de la perte post-récolte à la compétitivité numérique.";
 
 export function Hero() {
   return (

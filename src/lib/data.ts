@@ -9,19 +9,27 @@ import {
   Banknote,
   Briefcase,
   Building2,
+  Car,
+  Code,
   Cpu,
+  Eye,
+  Fuel,
   Globe,
   GraduationCap,
   Handshake,
   Landmark,
   Leaf,
+  Lightbulb,
   Megaphone,
+  Package,
   PackageCheck,
+  PenTool,
   ShieldCheck,
   Sprout,
   TrendingUp,
   Truck,
   Warehouse,
+  Zap,
 } from "lucide-react";
 
 export const EVENT = {
@@ -31,10 +39,10 @@ export const EVENT = {
   fullTitle: "Les Journées de l'Entreposage Tchologo 2026",
   slogan: "Que chaque kilo produit = chaque kilo vendu au bon prix.",
   baseline: "Stocker mieux · Gagner plus · Bâtir l'avenir",
-  datesLabel: "30 SEPT → 2 OCT 2026",
+  datesLabel: "15 → 17 OCT 2026",
   /** ISO start used for the live countdown (Africa/Abidjan, UTC). */
-  startISO: "2026-09-30T08:00:00Z",
-  endISO: "2026-10-02T18:00:00Z",
+  startISO: "2026-10-15T08:00:00Z",
+  endISO: "2026-10-17T18:00:00Z",
   citiesLabel: "Kong · Ouangolodougou · Ferkessédougou",
   cities: ["Kong", "Ouangolodougou", "Ferkessédougou"],
   region: "Région du Tchologo",
@@ -397,7 +405,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-1",
     dayLabel: "Jour 1",
-    date: "Mer. 30 sept. 2026",
+    date: "Ven. 16 oct. 2026",
     city: "Kong",
     theme: "Ouverture & enjeux du stockage",
     slots: [...COMMON_ACTIVITIES],
@@ -405,7 +413,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-2",
     dayLabel: "Jour 2",
-    date: "Jeu. 1 oct. 2026",
+    date: "Sam. 17 oct. 2026",
     city: "Ouangolodougou",
     theme: "Financement, marché & B2B",
     slots: [...COMMON_ACTIVITIES],
@@ -413,7 +421,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-3",
     dayLabel: "Jour 3",
-    date: "Ven. 2 oct. 2026",
+    date: "Dim. 18 oct. 2026",
     city: "Ferkessédougou",
     theme: "Terrain, gouvernance & feuille de route",
     slots: [
@@ -478,11 +486,6 @@ export const DIGNITARIES: Dignitary[] = [
     logoAlt: "Armoiries officielles de la Région du Tchologo",
   },
   {
-    name: "M.Abdramane Berté",
-    role: "Maire de la Commune de Kong",
-    image: "/presentation/abdramane_berte.png",
-  },
-  {
     name: "M.Moussa Toungara",
     role: "Maire de la Commune de Ouangolodougou",
     image: "/presentation/moussa_toungara.png",
@@ -511,9 +514,9 @@ export const DIGNITARIES: Dignitary[] = [
 
 /** Ministre mis en avant juste sous la personnalité principale. */
 export const SECONDARY_MINISTER: Dignitary = {
-  name: "Professeur Adama Diawara",
-  role: "Ministre de l'Enseignement Supérieur et de la Recherche Scientifique",
-  image: "/presentation/diawara.jpg",
+  name: "M.Abdramane Berté",
+  role: "Maire de la Commune de Kong, Directeur Général de la CGRAE",
+  image: "/presentation/abdramane_berte.png",
 };
 
 /** Numéro deux institutionnel — mis en avant juste sous la personnalité principale. */
@@ -608,8 +611,8 @@ export const COMMITTEE: Dignitary[] = [
     icon: Megaphone,
   },
   {
-    name: "Mme Awa Ouattara",
-    role: "Finance",
+    name: "Madame Nanan TRAORÉ ",
+    role: "Chargé des Finances",
     image: "/presentation/ousmane_sidiane.jpeg",
     imagePosition: "top",
     icon: Banknote,
@@ -630,6 +633,15 @@ export const COMMITTEE: Dignitary[] = [
     role: "Chargée des Relations Sous-Régionales",
     image: "/presentation/juslene_durrel.jpeg",
     icon: Globe,
+  },
+  {
+    name: "Cédric",
+    role: "Développeur & Data Scientist du Commissaire Général",
+    image: "/presentation/cedric.jpeg",
+    imagePosition: "top",
+    icon: Code,
+    statement:
+      "Conçoit et développe la plateforme digitale officielle de JE-TCH 2026, du site web à la valorisation des données de l'événement.",
   },
 ];
 
@@ -718,6 +730,86 @@ export const PARTNER_LOGOS: PartnerLogo[] = [
   { src: "/partenaires/rti.jpg", name: "RTI" },
   { src: "/partenaires/nci.jpg", name: "NCI" },
   { src: "/partenaires/life_tv.jpg", name: "Life TV" },
+  { src: "/logo/holding.jpeg", name: "Holding" },
+  { src: "/logo/hollandiva.jpeg", name: "Hollandiva" },
+];
+
+/* -------------------------------------------------------------------------- */
+/* Partenaire stratégique — SY&CO HOLDING                                     */
+/* -------------------------------------------------------------------------- */
+
+export interface StrategicPartnerActivity {
+  label: string;
+  icon: LucideIcon;
+}
+
+export const STRATEGIC_PARTNER = {
+  eyebrow: "Partenaire stratégique",
+  name: "SY&CO HOLDING",
+  logo: "/logo/holding.jpeg",
+  poster: "/partenaires/syco-holding-affiche.jpeg",
+  posterAlt: "Présentation officielle de SY&CO HOLDING, partenaire stratégique",
+  title: "Une expertise internationale au service de l'énergie et de la logistique.",
+  description:
+    "SY&CO HOLDING développe des solutions spécialisées dans les secteurs de l'énergie, du trading et de la logistique, en s'appuyant sur une expertise internationale et une approche orientée vers la qualité, l'innovation et la performance.",
+  quote:
+    "Une collaboration fondée sur la confiance, l'expertise et une vision commune.",
+  ctaLabel: "Découvrir SY&CO HOLDING",
+  website: "https://www.syandcoholding.com/",
+  activities: [
+    { label: "Trading international", icon: Globe },
+    { label: "Logistique et transport", icon: Truck },
+    { label: "Solutions énergétiques", icon: Zap },
+    { label: "Produits pétroliers et gaz", icon: Fuel },
+  ] as StrategicPartnerActivity[],
+};
+
+/* -------------------------------------------------------------------------- */
+/* YADI GROUP — partenaire multisectoriel                                    */
+/* -------------------------------------------------------------------------- */
+
+export interface YadiGroupArea {
+  icon: LucideIcon;
+  title: string;
+  text: string;
+}
+
+export const YADI_GROUP = {
+  eyebrow: "Un groupe. Plusieurs expertises.",
+  name: "YADI GROUP",
+  image: "/partenaires/yadi_goup.jpeg",
+  imageAlt: "Enseigne du siège de YADI GROUP et de ses filiales",
+  tagline: "Planifier. Lancer. Développer.",
+  title: "YADI GROUP, c'est l'ambition de construire, d'innover et de connecter.",
+  description:
+    "YADI GROUP est un groupe entrepreneurial opérant dans plusieurs secteurs stratégiques. À travers ses différentes entreprises, le groupe développe des solutions innovantes dans la construction, l'automobile, le transport et les technologies.",
+  ctaLabel: "Découvrir YADI GROUP",
+  website: "https://yadi.ci/",
+  finalCtaText: "Découvrez l'univers et les différentes entreprises du YADI GROUP.",
+  finalCtaLabel: "Visiter le site",
+} as const;
+
+export const YADI_GROUP_AREAS: YadiGroupArea[] = [
+  {
+    icon: Building2,
+    title: "BTP & Construction",
+    text: "Des solutions innovantes pour des constructions modernes et durables.",
+  },
+  {
+    icon: Car,
+    title: "Automobile",
+    text: "Des solutions et services dédiés à la mobilité et à l'entretien automobile.",
+  },
+  {
+    icon: Truck,
+    title: "Transport & Logistique",
+    text: "Des solutions de mobilité et de transport adaptées aux besoins des particuliers et des entreprises.",
+  },
+  {
+    icon: Cpu,
+    title: "Technologie",
+    text: "Des solutions digitales et technologiques pour accompagner la transformation des entreprises.",
+  },
 ];
 
 /* -------------------------------------------------------------------------- */
@@ -754,7 +846,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: "Quand et où se déroulent les Journées ?",
-    a: "Du 30 septembre au 2 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
+    a: "Du 15 au 17 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
   },
   {
     q: "Qui peut participer ?",
@@ -788,9 +880,62 @@ export const FAQ: FaqItem[] = [
 
 export const PRESS_FACTS = [
   { label: "Édition", value: "1ère édition — 2026" },
-  { label: "Dates", value: "30 sept. → 2 oct. 2026" },
+  { label: "Dates", value: "15 → 17 oct. 2026" },
   { label: "Lieu", value: "Kong · Ouangolodougou · Ferkessédougou" },
   { label: "Participants attendus", value: "1 500+" },
   { label: "Filières", value: "Anacarde, mangue, coton, maïs, karité, igname" },
   { label: "Enjeu", value: "90 milliards FCFA de pertes évitables / an" },
+];
+
+/* -------------------------------------------------------------------------- */
+/* TY COM — partenaire impression, marquage & personnalisation                */
+/* -------------------------------------------------------------------------- */
+
+export const TY_COM = {
+  eyebrow: "Partenaire impression & marquage",
+  name: "TY COM",
+  logo: "/logo/ty_com_logo.jpeg",
+  tagline: "La visibilité sur mesure",
+  headline: "Voyez plus loin, nous optimisons votre visibilité",
+  activities: ["Imprimerie", "Personnalisation", "Marquage"],
+  ctaLabel: "Découvrir TY COM",
+  ctaFinalLabel: "Découvrir toutes nos solutions",
+  website: "https://www.tycomci.com",
+  finalSlogan: "PRO · RAPIDE · SUR MESURE",
+  finalText:
+    "Donnez de la visibilité à votre marque avec des solutions professionnelles d'impression, de marquage et de personnalisation.",
+  contact: {
+    phone: { label: "+225 07 07 91 91 26", href: "tel:+2250707919126" },
+    whatsapp: { label: "+225 05 74 74 67 14", href: "https://wa.me/2250574746714" },
+    email: { label: "touramann.ishaq@gmail.com", href: "mailto:touramann.ishaq@gmail.com" },
+  },
+} as const;
+
+export interface TyComVisionItem {
+  title: string;
+  text: string;
+  icon: LucideIcon;
+}
+
+export const TY_COM_VISION: TyComVisionItem[] = [
+  {
+    title: "On marque vos idées",
+    text: "De l'imagination à l'objet.",
+    icon: Lightbulb,
+  },
+  {
+    title: "Votre marque, notre signature",
+    text: "Visible. Pro. Inoubliable.",
+    icon: PenTool,
+  },
+  {
+    title: "L'expertise qui vous rend visible",
+    text: "Un savoir-faire technique au service de votre image de marque.",
+    icon: Eye,
+  },
+  {
+    title: "On imprime votre puissance",
+    text: "Du logo à l'objet : on s'occupe de tout.",
+    icon: Package,
+  },
 ];
