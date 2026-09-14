@@ -129,7 +129,7 @@ export function PoweredByYaswa({
           )}
         >
           <ShieldCheck className={cn("size-3.5", s.badgeIcon)} />
-          Trusted Technology Partner
+          Trusted Technology Partner / +225 0716253873
         </motion.span>
       )}
     </motion.div>

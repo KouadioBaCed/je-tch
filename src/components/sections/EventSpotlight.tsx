@@ -147,7 +147,9 @@ export function EventSpotlight({
                 <p className="truncate font-heading text-sm font-bold text-ink">
                   {SECONDARY_MINISTER.name}
                 </p>
-                <p className="truncate text-xs text-muted">{SECONDARY_MINISTER.role}</p>
+                <p className="truncate text-xs text-muted">
+                  {SECONDARY_MINISTER.role.replace("\n", " · ")}
+                </p>
               </div>
             </motion.div>
 

@@ -8,6 +8,7 @@ import { Products } from "@/components/sections/Products";
 import { ProgramPreview } from "@/components/sections/ProgramPreview";
 import { Authorities } from "@/components/sections/Authorities";
 import { StrategicPartnerSection } from "@/components/sections/StrategicPartnerSection";
+import { MhigiSection } from "@/components/sections/MhigiSection";
 import { TyComSection } from "@/components/sections/TyComSection";
 import { YadiGroupSection } from "@/components/sections/YadiGroupSection";
 import { Partners } from "@/components/sections/Partners";
@@ -27,6 +28,7 @@ export default function HomePage() {
       <ProgramPreview />
       <Authorities />
       <StrategicPartnerSection />
+      <MhigiSection />
       <TyComSection />
       <YadiGroupSection />
       <Partners />

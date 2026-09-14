@@ -48,7 +48,7 @@ export function Authorities() {
           <FeaturedDignitary person={principal} />
         </motion.div>
 
-        {/* Ministre — juste sous la personnalité principale */}
+        {/* Parrain — juste sous la personnalité principale */}
         <motion.div
           initial="hidden"
           whileInView="show"
@@ -56,7 +56,7 @@ export function Authorities() {
           variants={staggerContainer(0.15)}
           className="mt-12 border-t border-white/10 pt-12 lg:mt-16 lg:pt-16"
         >
-          <FeaturedDignitary person={SECONDARY_MINISTER} variant="secondary" eyebrow={null} />
+          <FeaturedDignitary person={SECONDARY_MINISTER} variant="secondary" eyebrow="Sous le parrainage de" />
         </motion.div>
 
         {/* Numéro deux — le sénateur, juste sous la personnalité principale */}

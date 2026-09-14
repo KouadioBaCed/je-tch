@@ -129,7 +129,7 @@ export function FeaturedDignitary({ person, variant = "primary", portraitSide = 
         </h3>
         <p
           className={cn(
-            "mt-3 text-pretty font-medium text-white/80",
+            "mt-3 text-pretty font-medium text-white/80 whitespace-pre-line",
             isSecondary ? "text-base lg:text-lg" : "text-lg"
           )}
         >

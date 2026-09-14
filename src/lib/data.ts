@@ -512,10 +512,10 @@ export const DIGNITARIES: Dignitary[] = [
   },
 ];
 
-/** Ministre mis en avant juste sous la personnalité principale. */
+/** Parrain mis en avant juste sous la personnalité principale. */
 export const SECONDARY_MINISTER: Dignitary = {
-  name: "M.Abdramane Berté",
-  role: "Maire de la Commune de Kong, Directeur Général de la CGRAE",
+  name: "M. Abdramane BERTE",
+  role: "Maire de Kong\nDirecteur Général de la CGRAE",
   image: "/presentation/abdramane_berte.png",
 };
 
@@ -721,6 +721,11 @@ export const PARTNER_LOGOS: PartnerLogo[] = [
   { src: "/partenaires/lonaci.jpg", name: "LONACI" },
   { src: "/partenaires/sama.jpg", name: "SAMA" },
   { src: "/partenaires/corolay.jpg", name: "Corolay" },
+  { src: "/samagroupe/lonaci.png", name: "LONACI" },
+  { src: "/samagroupe/sama_group.png", name: "SAMA Group" },
+  { src: "/samagroupe/sama_group_btp.png", name: "SAMA Group BTP" },
+  { src: "/samagroupe/sama_transport.png", name: "SAMA Transports" },
+  { src: "/samagroupe/corlay.png", name: "Corlay" },
   { src: "/partenaires/divoholding.jpg", name: "Divo Holding" },
   { src: "/partenaires/mhiGI.jpg", name: "MHI-GI" },
   { src: "/partenaires/ccip.jpg", name: "CCI-CI" },
@@ -811,6 +816,33 @@ export const YADI_GROUP_AREAS: YadiGroupArea[] = [
     text: "Des solutions digitales et technologiques pour accompagner la transformation des entreprises.",
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* MHIGI — Partenaire BTP, Immobilier & Ingénierie industrielle               */
+/* -------------------------------------------------------------------------- */
+
+export const MHIGI = {
+  eyebrow: "Groupe Ivoirien · BTP & Ingénierie",
+  name: "MHIGI",
+  logo: "/new_part/logo.png",
+  image: "/new_part/WhatsApp Image 2026-09-12 at 09.50.56 (3).jpeg",
+  imageAlt: "Partenariat officiel et équipe MHIGI",
+  flyerImage: "/new_part/WhatsApp Image 2026-09-12 at 09.50.56.jpeg",
+  tagline: "Bâtissons ensemble un monde meilleur.",
+  title: "Solutions innovantes et durables pour l'industrie et les infrastructures.",
+  description:
+    "MHIGI est un groupe ivoirien spécialisé dans la construction, l’immobilier et l’ingénierie industrielle. Nous proposons des solutions innovantes et durables dans plusieurs secteurs : construction, immobilier, agriculture, énergie, infrastructures et industrie. Notre ambition est d’accompagner nos clients dans la réalisation de projets performants et durables.",
+  ctaLabel: "Découvrir MHIGI",
+  website: "https://mhigi.com/",
+  sectors: [
+    { label: "Construction", description: "Ouvrages modernes, bâtiments durables et génie civil" },
+    { label: "Immobilier", description: "Aménagement d'espaces de vie et projets résidentiels" },
+    { label: "Agriculture", description: "Infrastructures agro-industrielles & valorisation" },
+    { label: "Énergie", description: "Solutions durables et transition énergétique" },
+    { label: "Infrastructures", description: "Réseaux routiers, hydrauliques et plateformes" },
+    { label: "Industrie", description: "Ingénierie industrielle et entrepôts de pointe" },
+  ],
+} as const;
 
 /* -------------------------------------------------------------------------- */
 /* Région du Tchologo                                                         */
