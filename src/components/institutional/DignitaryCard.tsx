@@ -41,7 +41,7 @@ export function DignitaryCard({ person, sizes, className }: DignitaryCardProps) 
           <h3 className="font-heading text-lg font-extrabold leading-tight text-white">
             {person.name}
           </h3>
-          <p className="mt-1 text-sm font-medium text-white/80">{person.role}</p>
+          <p className="mt-1 text-sm font-medium text-white/80 whitespace-pre-line">{person.role}</p>
         </div>
       </div>
 

@@ -486,6 +486,11 @@ export const DIGNITARIES: Dignitary[] = [
     logoAlt: "Armoiries officielles de la Région du Tchologo",
   },
   {
+    name: "M. Abdramane BERTE",
+    role: "Maire de Kong\nDirecteur Général de la CGRAE",
+    image: "/presentation/abdramane_berte.png",
+  },
+  {
     name: "M.Moussa Toungara",
     role: "Maire de la Commune de Ouangolodougou",
     image: "/presentation/moussa_toungara.png",
@@ -782,7 +787,7 @@ export interface YadiGroupArea {
 export const YADI_GROUP = {
   eyebrow: "Un groupe. Plusieurs expertises.",
   name: "YADI GROUP",
-  image: "/partenaires/yadi_goup.jpeg",
+  image: "/partenaires/yadi_goup.png",
   imageAlt: "Enseigne du siège de YADI GROUP et de ses filiales",
   tagline: "Planifier. Lancer. Développer.",
   title: "YADI GROUP, c'est l'ambition de construire, d'innover et de connecter.",
