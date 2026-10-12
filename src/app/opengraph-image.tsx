@@ -56,7 +56,7 @@ export default function OgImage() {
               marginBottom: "24px",
             }}
           >
-            15 → 17 OCT 2026 · Région du Tchologo
+            18 - 20 OCT 2026 · Région du Tchologo
           </div>
           <div style={{ display: "flex", fontSize: "76px", fontWeight: 800, lineHeight: 1.05, maxWidth: "950px" }}>
             Les Journées de l'Entreposage{" "}

@@ -5,7 +5,7 @@ institutionnel et agricole majeur de Côte d'Ivoire dédié à l'entreposage, au
 et à la réduction des pertes post-récolte.
 
 > **Stocker mieux · Gagner plus · Bâtir l'avenir**
-> 30 sept → 2 oct 2026 · Kong · Ouangolodougou · Ferkessédougou
+> 18 → 20 oct 2026 · Kong · Ouangolodougou · Ferkessédougou
 
 ## Stack
 

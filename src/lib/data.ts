@@ -13,7 +13,6 @@ import {
   Code,
   Cpu,
   Eye,
-  Fuel,
   Globe,
   GraduationCap,
   Handshake,
@@ -29,7 +28,6 @@ import {
   TrendingUp,
   Truck,
   Warehouse,
-  Zap,
 } from "lucide-react";
 
 export const EVENT = {
@@ -39,10 +37,10 @@ export const EVENT = {
   fullTitle: "Les Journées de l'Entreposage Tchologo 2026",
   slogan: "Que chaque kilo produit = chaque kilo vendu au bon prix.",
   baseline: "Stocker mieux · Gagner plus · Bâtir l'avenir",
-  datesLabel: "15 → 17 OCT 2026",
+  datesLabel: "18 - 20 OCT 2026",
   /** ISO start used for the live countdown (Africa/Abidjan, UTC). */
-  startISO: "2026-10-15T08:00:00Z",
-  endISO: "2026-10-17T18:00:00Z",
+  startISO: "2026-10-18T08:00:00Z",
+  endISO: "2026-10-20T18:00:00Z",
   citiesLabel: "Kong · Ouangolodougou · Ferkessédougou",
   cities: ["Kong", "Ouangolodougou", "Ferkessédougou"],
   region: "Région du Tchologo",
@@ -61,6 +59,7 @@ export const EVENT = {
 export const NAV_LINKS = [
   { href: "/", label: "Accueil" },
   { href: "/programme", label: "Programme" },
+  { href: "/evenements", label: "Évènements" },
   { href: "/exposants", label: "Exposants & Sponsors" },
   { href: "/presse", label: "Presse" },
   { href: "/faq", label: "FAQ" },
@@ -405,7 +404,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-1",
     dayLabel: "Jour 1",
-    date: "Ven. 16 oct. 2026",
+    date: "Dim. 18 oct. 2026",
     city: "Kong",
     theme: "Ouverture & enjeux du stockage",
     slots: [...COMMON_ACTIVITIES],
@@ -413,7 +412,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-2",
     dayLabel: "Jour 2",
-    date: "Sam. 17 oct. 2026",
+    date: "Lun. 19 oct. 2026",
     city: "Ouangolodougou",
     theme: "Financement, marché & B2B",
     slots: [...COMMON_ACTIVITIES],
@@ -421,7 +420,7 @@ export const PROGRAM: ProgramDay[] = [
   {
     id: "jour-3",
     dayLabel: "Jour 3",
-    date: "Dim. 18 oct. 2026",
+    date: "Mar. 20 oct. 2026",
     city: "Ferkessédougou",
     theme: "Terrain, gouvernance & feuille de route",
     slots: [
@@ -740,39 +739,13 @@ export const PARTNER_LOGOS: PartnerLogo[] = [
   { src: "/partenaires/rti.jpg", name: "RTI" },
   { src: "/partenaires/nci.jpg", name: "NCI" },
   { src: "/partenaires/life_tv.jpg", name: "Life TV" },
-  { src: "/logo/holding.jpeg", name: "Holding" },
   { src: "/logo/hollandiva.jpeg", name: "Hollandiva" },
+  { src: "/partenaires/oic-logo.jpeg", name: "Office Ivoirien des Chargeurs (OIC)" },
+  { src: "/partenaires/multipack.jpeg", name: "Multipack" },
+  { src: "/partenaires/imgh.jpeg", name: "IMGH" },
+  { src: "/partenaires/itn-logo.jpeg", name: "ITN Smart Storage" },
+  { src: "/partenaires/petroci.jpeg", name: "PETROCI" },
 ];
-
-/* -------------------------------------------------------------------------- */
-/* Partenaire stratégique — SY&CO HOLDING                                     */
-/* -------------------------------------------------------------------------- */
-
-export interface StrategicPartnerActivity {
-  label: string;
-  icon: LucideIcon;
-}
-
-export const STRATEGIC_PARTNER = {
-  eyebrow: "Partenaire stratégique",
-  name: "SY&CO HOLDING",
-  logo: "/logo/holding.jpeg",
-  poster: "/partenaires/syco-holding-affiche.jpeg",
-  posterAlt: "Présentation officielle de SY&CO HOLDING, partenaire stratégique",
-  title: "Une expertise internationale au service de l'énergie et de la logistique.",
-  description:
-    "SY&CO HOLDING développe des solutions spécialisées dans les secteurs de l'énergie, du trading et de la logistique, en s'appuyant sur une expertise internationale et une approche orientée vers la qualité, l'innovation et la performance.",
-  quote:
-    "Une collaboration fondée sur la confiance, l'expertise et une vision commune.",
-  ctaLabel: "Découvrir SY&CO HOLDING",
-  website: "https://www.syandcoholding.com/",
-  activities: [
-    { label: "Trading international", icon: Globe },
-    { label: "Logistique et transport", icon: Truck },
-    { label: "Solutions énergétiques", icon: Zap },
-    { label: "Produits pétroliers et gaz", icon: Fuel },
-  ] as StrategicPartnerActivity[],
-};
 
 /* -------------------------------------------------------------------------- */
 /* YADI GROUP — partenaire multisectoriel                                    */
@@ -883,7 +856,7 @@ export const FAQ: FaqItem[] = [
   },
   {
     q: "Quand et où se déroulent les Journées ?",
-    a: "Du 15 au 17 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
+    a: "Du 18 au 20 octobre 2026, dans la région du Tchologo, sur trois villes : Kong, Ouangolodougou et Ferkessédougou.",
   },
   {
     q: "Qui peut participer ?",
@@ -917,7 +890,7 @@ export const FAQ: FaqItem[] = [
 
 export const PRESS_FACTS = [
   { label: "Édition", value: "1ère édition — 2026" },
-  { label: "Dates", value: "15 → 17 oct. 2026" },
+  { label: "Dates", value: "18 → 20 oct. 2026" },
   { label: "Lieu", value: "Kong · Ouangolodougou · Ferkessédougou" },
   { label: "Participants attendus", value: "1 500+" },
   { label: "Filières", value: "Anacarde, mangue, coton, maïs, karité, igname" },
@@ -976,3 +949,75 @@ export const TY_COM_VISION: TyComVisionItem[] = [
     icon: Package,
   },
 ];
+
+/* -------------------------------------------------------------------------- */
+/* Évènements & actualités — alimenté au fil de l'eau                         */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Média principal d'une actualité :
+ * - `video` : fichier local sous /public (ex. reportage TV) ;
+ * - `image` : visuel local sous /public ;
+ * - `youtube` : identifiant d'une vidéo YouTube (lecture intégrée).
+ */
+export type NewsMedia =
+  | { type: "video"; src: string; poster?: string; /** largeur / hauteur */ ratio?: number }
+  | { type: "image"; src: string; alt: string }
+  | { type: "youtube"; id: string };
+
+export interface NewsItem {
+  slug: string;
+  /** Date ISO (AAAA-MM-JJ) — sert au tri, du plus récent au plus ancien. */
+  date: string;
+  /** Rubrique courte affichée en pastille (ex. « Médias », « Terrain »). */
+  category: string;
+  /** Origine courte affichée dans le bandeau et les cartes (ex. « RTI 1 · JT 13H »). */
+  kicker: string;
+  title: string;
+  excerpt: string;
+  /** Corps du communiqué, un paragraphe par entrée. */
+  body: string[];
+  /** Crédit / source officielle. */
+  source?: string;
+  media: NewsMedia;
+  /** Lien externe complémentaire (article, replay…). */
+  link?: { href: string; label: string };
+}
+
+/**
+ * Pour ajouter un évènement : ajouter une entrée ici (n'importe où, le tri
+ * par date est automatique) et déposer le média dans /public/evenement/.
+ */
+const NEWS_ITEMS: NewsItem[] = [
+  {
+    slug: "rti1-jt-13h-08-octobre-2026",
+    date: "2026-10-08",
+    category: "Médias",
+    kicker: "RTI 1 · Journal de 13H",
+    title: "Les acteurs sensibilisent au système de l'entreposage",
+    excerpt:
+      "Diffusion nationale : le Journal de 13 Heures de RTI 1 consacre un reportage aux JE-TCH 2026, entre potentiel agricole du Tchologo et enjeu de la conservation post-récolte.",
+    body: [
+      "Le Commissariat Général a l'honneur de porter à la connaissance de l'ensemble des partenaires, institutions et populations du Tchologo que l'élément de reportage consacré aux Journées de l'Entreposage dans le Tchologo – JE-TCH 2026 a été diffusé ce jour, Mercredi 08 Octobre 2026, au Journal de 13 Heures de RTI 1, avec une rediffusion prévue au Journal de 20 Heures.",
+      "Le reportage, intitulé « Les acteurs sensibilisent au système de l'entreposage », met en exergue le potentiel agricole du Tchologo et l'enjeu majeur de la conservation post-récolte.",
+    ],
+    source: "Le 13 Heures de RTI 1 du 08 Octobre 2026 par Saria BAMBA et Jean-Marc DACHI.",
+    media: { type: "video", src: "/evenement/video/rti1-jt13h-2026-10-08.mp4", ratio: 576 / 464 },
+  },
+];
+
+export const NEWS: NewsItem[] = [...NEWS_ITEMS].sort((a, b) => b.date.localeCompare(a.date));
+
+export function getNewsBySlug(slug: string): NewsItem | undefined {
+  return NEWS.find((item) => item.slug === slug);
+}
+
+/** « 08 oct. 2026 » — format court, fuseau UTC pour éviter tout décalage SSR/CSR. */
+export function formatNewsDate(iso: string, style: "short" | "long" = "short"): string {
+  return new Intl.DateTimeFormat("fr-FR", {
+    day: "2-digit",
+    month: style === "short" ? "short" : "long",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(new Date(`${iso}T00:00:00Z`));
+}

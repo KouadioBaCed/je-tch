@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: `%s | ${EVENT.shortName}`,
   },
   description:
-    "Salon institutionnel et agricole majeur de Côte d'Ivoire dédié à l'entreposage, au warrantage et à la réduction des pertes post-récolte. 15 → 17 oct 2026, région du Tchologo. Entrée gratuite pour les producteurs.",
+    "Salon institutionnel et agricole majeur de Côte d'Ivoire dédié à l'entreposage, au warrantage et à la réduction des pertes post-récolte. 18 → 20 oct 2026, région du Tchologo. Entrée gratuite pour les producteurs.",
   keywords: [
     "entreposage agricole",
     "warrantage",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${EVENT.fullTitle} | ${EVENT.datesLabel}`,
-    description: "Stocker mieux, gagner plus — Région du Tchologo, 15 → 17 oct 2026.",
+    description: "Stocker mieux, gagner plus — Région du Tchologo, 18 → 20 oct 2026.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: EVENT.url },
@@ -70,8 +70,8 @@ const jsonLd = {
   name: EVENT.fullTitle,
   description:
     "Salon institutionnel et agricole dédié à l'entreposage, au warrantage et à la réduction des pertes post-récolte dans la région du Tchologo.",
-  startDate: "2026-09-30",
-  endDate: "2026-10-02",
+  startDate: "2026-10-18",
+  endDate: "2026-10-20",
   eventStatus: "https://schema.org/EventScheduled",
   eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
   location: {

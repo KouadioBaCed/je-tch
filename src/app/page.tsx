@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { EventSpotlight } from "@/components/sections/EventSpotlight";
+import { NewsSection } from "@/components/sections/NewsSection";
 import { Stats } from "@/components/sections/Stats";
 import { Region } from "@/components/sections/Region";
 import { WhyParticipate } from "@/components/sections/WhyParticipate";
@@ -7,7 +8,6 @@ import { Objectives } from "@/components/sections/Objectives";
 import { Products } from "@/components/sections/Products";
 import { ProgramPreview } from "@/components/sections/ProgramPreview";
 import { Authorities } from "@/components/sections/Authorities";
-import { StrategicPartnerSection } from "@/components/sections/StrategicPartnerSection";
 import { MhigiSection } from "@/components/sections/MhigiSection";
 import { TyComSection } from "@/components/sections/TyComSection";
 import { YadiGroupSection } from "@/components/sections/YadiGroupSection";
@@ -20,6 +20,7 @@ export default function HomePage() {
     <>
       <Hero />
       <EventSpotlight />
+      <NewsSection />
       <Stats />
       <Region />
       <WhyParticipate />
@@ -27,7 +28,6 @@ export default function HomePage() {
       <Products />
       <ProgramPreview />
       <Authorities />
-      <StrategicPartnerSection />
       <MhigiSection />
       <TyComSection />
       <YadiGroupSection />

@@ -98,7 +98,7 @@ export function EventSpotlight({
               </div>
               <div>
                 <p className="font-heading text-lg font-extrabold leading-none text-ink">
-                  15 – 17
+                  18 – 20
                 </p>
                 <p className="mt-1 text-xs font-bold uppercase tracking-[0.14em] text-orange">
                   Octobre 2026
@@ -201,7 +201,7 @@ export function EventSpotlight({
           className="mx-auto mt-14 flex w-fit items-center gap-2 rounded-full border border-orange/25 bg-orange/5 px-5 py-2.5 text-sm font-semibold text-orange-hover"
         >
           <Calendar className="size-4" aria-hidden />
-          15 au 17 octobre 2026 — {EVENT.citiesLabel}
+          18 au 20 octobre 2026 — {EVENT.citiesLabel}
         </motion.div>
       </div>
     </section>

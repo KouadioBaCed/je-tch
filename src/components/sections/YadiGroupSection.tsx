@@ -9,7 +9,7 @@ import { fadeInLeft, fadeInRight, fadeUp, staggerContainer, viewportOnce } from 
 
 /**
  * YadiGroupSection — présentation éditoriale du partenaire multisectoriel
- * YADI GROUP. Même gabarit que `StrategicPartnerSection` (copy à gauche,
+ * YADI GROUP. Gabarit éditorial (copy à gauche,
  * illustration à droite) complété par une grille de domaines d'activité et
  * un CTA final vers yadi.ci.
  */
