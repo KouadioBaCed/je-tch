@@ -4,13 +4,12 @@ import { NEWS } from "@/lib/data";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { Reveal } from "@/components/shared/Reveal";
 import { Button } from "@/components/ui/button";
-import { NewsTicker } from "@/components/news/NewsTicker";
 import { NewsFeatured } from "@/components/news/NewsFeatured";
 import { NewsCarousel } from "@/components/news/NewsCarousel";
 
 /**
  * Rubrique « Évènements » de l'accueil :
- * bandeau défilant des titres → actualité la plus récente en vedette →
+ * actualité la plus récente en vedette →
  * carrousel des suivantes (affiché dès qu'il y en a plus d'une).
  * Contenu : `NEWS` dans lib/data.ts.
  */
@@ -20,7 +19,6 @@ export function NewsSection() {
 
   return (
     <section id="evenements" className="relative bg-surface" aria-labelledby="news-title">
-      <NewsTicker items={NEWS} />
 
       <div className="section container">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
