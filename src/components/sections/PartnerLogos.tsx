@@ -8,8 +8,8 @@ import { fadeUp, staggerContainer, viewportOnce } from "@/lib/motion";
 
 /**
  * Mur de partenaires & sponsors — vitrine logos.
- * Tuiles uniformes sur fond blanc (les logos à fond blanc se fondent),
- * logos en `object-contain` (jamais déformés), révélation en cascade.
+ * Trophées « Prix de reconnaissance » en tuiles portrait uniformes,
+ * affichés en entier (`object-contain`), révélation en cascade.
  * L'ordre suit `PARTNER_LOGOS` (source de vérité unique).
  */
 export function PartnerLogos() {
@@ -29,20 +29,20 @@ export function PartnerLogos() {
           whileInView="show"
           viewport={viewportOnce}
           variants={staggerContainer(0.04)}
-          className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+          className="mt-12 mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-6"
         >
           {PARTNER_LOGOS.map((logo) => (
             <motion.li
               key={logo.src}
               variants={fadeUp}
-              className="group relative aspect-[3/2] overflow-hidden rounded-xl border border-line bg-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-green/40 hover:shadow-soft-lg"
+              className="group relative aspect-[3/4] overflow-hidden rounded-2xl border border-line bg-white shadow-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-green/40 hover:shadow-soft-lg"
             >
               <Image
                 src={logo.src}
                 alt={`Logo ${logo.name}`}
                 fill
-                sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, (max-width: 1024px) 22vw, 18vw"
-                className="object-contain p-5 transition-transform duration-500 ease-out group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
+                className="object-contain p-2 transition-transform duration-500 ease-out group-hover:scale-105"
               />
             </motion.li>
           ))}

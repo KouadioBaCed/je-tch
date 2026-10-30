@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { PartnerLucarne } from "@/components/brand/PartnerLucarne";
 import { EVENT } from "@/lib/data";
 
 const montserrat = localFont({
@@ -115,6 +116,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main id="contenu">{children}</main>
         <Footer />
+        <PartnerLucarne />
       </body>
     </html>
   );

@@ -709,42 +709,23 @@ export interface PartnerLogo {
 /**
  * Mur des partenaires & sponsors. L'ORDRE D'AFFICHAGE = l'ordre de ce tableau ;
  * pour réordonner, il suffit de déplacer une ligne.
- * Regroupés : ministères → institutionnel/financier → médias → entreprises.
+ * Trophées « Prix de reconnaissance » remis aux partenaires JE-TCH 2026.
  */
 export const PARTNER_LOGOS: PartnerLogo[] = [
-  { src: "/partenaires/minister_one.jpg", name: "Ministère partenaire" },
-  { src: "/partenaires/minister_two.jpg", name: "Ministère partenaire" },
-  { src: "/partenaires/minister_three.jpg", name: "Ministère partenaire" },
-  { src: "/partenaires/minister_four.jpg", name: "Ministère partenaire" },
-  { src: "/partenaires/minister_five.jpg", name: "Ministère partenaire" },
-  { src: "/partenaires/arte_one.jpg", name: "Arte One" },
-  { src: "/partenaires/mangue.png", name: "Mangue" },
-  { src: "/logo/anarcade.jpg", name: "OIA Anacarde" },
-  { src: "/logo/coton.jpg", name: "Conseil Coton Anacarde Karité" },
-  { src: "/partenaires/care_or.jpg", name: "Groupe Carré d'Or" },
-  { src: "/partenaires/lonaci.jpg", name: "LONACI" },
-  { src: "/partenaires/sama.jpg", name: "SAMA" },
-  { src: "/partenaires/corolay.jpg", name: "Corolay" },
-  { src: "/samagroupe/lonaci.png", name: "LONACI" },
-  { src: "/samagroupe/sama_group.png", name: "SAMA Group" },
-  { src: "/samagroupe/sama_group_btp.png", name: "SAMA Group BTP" },
-  { src: "/samagroupe/sama_transport.png", name: "SAMA Transports" },
-  { src: "/samagroupe/corlay.png", name: "Corlay" },
-  { src: "/partenaires/divoholding.jpg", name: "Divo Holding" },
-  { src: "/partenaires/mhiGI.jpg", name: "MHI-GI" },
-  { src: "/partenaires/ccip.jpg", name: "CCI-CI" },
-  { src: "/partenaires/etv.jpg", name: "ETV" },
-  { src: "/partenaires/bni.png", name: "BNI" },
-  { src: "/partenaires/atlantic_banc.jpg", name: "Banque Atlantique" },
-  { src: "/partenaires/rti.jpg", name: "RTI" },
-  { src: "/partenaires/nci.jpg", name: "NCI" },
-  { src: "/partenaires/life_tv.jpg", name: "Life TV" },
-  { src: "/logo/hollandiva.jpeg", name: "Hollandiva" },
-  { src: "/partenaires/oic-logo.jpeg", name: "Office Ivoirien des Chargeurs (OIC)" },
-  { src: "/partenaires/multipack.jpeg", name: "Multipack" },
-  { src: "/partenaires/imgh.jpeg", name: "IMGH" },
-  { src: "/partenaires/itn-logo.jpeg", name: "ITN Smart Storage" },
-  { src: "/partenaires/petroci.jpeg", name: "PETROCI" },
+  { src: "/partenaires/jetch/arre-ci.jpeg", name: "ARRE-CI — Autorité de Régulation du Système de Récépissés d'Entreposage" },
+  { src: "/partenaires/jetch/corlay.jpeg", name: "Corlay — Building Your Trust" },
+  { src: "/partenaires/jetch/multipack.jpeg", name: "Multipack" },
+  { src: "/partenaires/jetch/mhigi.jpeg", name: "MHIGI" },
+  { src: "/partenaires/jetch/itn.jpeg", name: "ITN Smart Storage" },
+  { src: "/partenaires/jetch/carre-dor.jpeg", name: "Groupe Carré d'Or" },
+];
+
+/** Lucarne flottante : logos qui défilent dans le coin de l'écran (ordre = ordre d'affichage). */
+export const LUCARNE_PARTNERS: PartnerLogo[] = [
+  { src: "/evenement/lucarne/petroci.jpeg", name: "PETROCI" },
+  { src: "/evenement/lucarne/itn.jpeg", name: "ITN Smart Storage" },
+  { src: "/evenement/lucarne/multipack.jpeg", name: "Multipack" },
+  { src: "/evenement/lucarne/corlay.jpeg", name: "Corlay" },
 ];
 
 /* -------------------------------------------------------------------------- */
