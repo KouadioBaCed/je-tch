@@ -7,6 +7,8 @@ import { Reveal } from "@/components/shared/Reveal";
 import { Button } from "@/components/ui/button";
 import { NewsMedia } from "@/components/news/NewsMedia";
 import { NewsCard } from "@/components/news/NewsCard";
+import { NewsAgenda } from "@/components/news/NewsAgenda";
+import { NewsGallery } from "@/components/news/NewsGallery";
 import { EVENT, NEWS, formatNewsDate, getNewsBySlug } from "@/lib/data";
 
 type Params = { slug: string };
@@ -94,6 +96,17 @@ export default async function NewsDetailPage({ params }: { params: Promise<Param
                 </Reveal>
               )}
 
+              {item.agenda && (
+                <div className="!mt-12">
+                  <Reveal>
+                    <h2 className="text-2xl font-extrabold text-orange sm:text-3xl">Déroulé</h2>
+                  </Reveal>
+                  <div className="mt-8">
+                    <NewsAgenda entries={item.agenda} />
+                  </div>
+                </div>
+              )}
+
               {item.link && (
                 <Reveal>
                   <Button asChild variant="green">
@@ -108,6 +121,22 @@ export default async function NewsDetailPage({ params }: { params: Promise<Param
           </div>
         </div>
       </article>
+
+      {item.gallery && item.gallery.length > 0 && (
+        <section className="section-tight bg-surface" aria-labelledby="galerie-title">
+          <div className="container">
+            <div className="flex flex-wrap items-end justify-between gap-2">
+              <h2 id="galerie-title" className="text-2xl font-extrabold text-ink sm:text-3xl">
+                En images
+              </h2>
+              <p className="text-sm font-medium text-muted">{item.gallery.length} photos · cliquez pour agrandir</p>
+            </div>
+            <div className="mt-8">
+              <NewsGallery photos={item.gallery} title={item.title} />
+            </div>
+          </div>
+        </section>
+      )}
 
       {related.length > 0 && (
         <section className="section-tight bg-surface">

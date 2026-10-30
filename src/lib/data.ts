@@ -982,6 +982,28 @@ export interface NewsItem {
   media: NewsMedia;
   /** Lien externe complémentaire (article, replay…). */
   link?: { href: string; label: string };
+  /** Déroulé horaire d'une journée terrain (compte-rendu de mission). */
+  agenda?: NewsAgendaEntry[];
+  /** Photos du reportage, affichées en galerie avec visionneuse. */
+  gallery?: string[];
+}
+
+export interface NewsAgendaEntry {
+  /** Créneau affiché tel quel (ex. « 9H00 – 12H30 »). */
+  time: string;
+  title: string;
+  place?: string;
+  /** Personnes présentes, une par entrée. */
+  participants?: string[];
+  /** Points abordés, numérotés à l'affichage. */
+  points?: string[];
+  /** Paragraphes de synthèse. */
+  notes?: string[];
+}
+
+/** `/evenement/<dossier>/01.jpeg` … `NN.jpeg` — photos numérotées d'un reportage. */
+function photoSeries(folder: string, count: number): string[] {
+  return Array.from({ length: count }, (_, i) => `/evenement/${folder}/${String(i + 1).padStart(2, "0")}.jpeg`);
 }
 
 /**
@@ -989,6 +1011,168 @@ export interface NewsItem {
  * par date est automatique) et déposer le média dans /public/evenement/.
  */
 const NEWS_ITEMS: NewsItem[] = [
+  {
+    slug: "etape-finale-ferkessedougou-20-octobre-2026",
+    date: "2026-10-20",
+    category: "Terrain",
+    kicker: "Ferkessédougou · Partie 4",
+    title: "Étape finale à Ferkessédougou",
+    excerpt:
+      "Mardi 20 octobre 2026, les JE-TCH 2026 posent leurs valises à Ferkessédougou pour la dernière étape de cette première édition.",
+    body: [
+      "Après Kong le dimanche 18 octobre et Ouangolodougou le lundi 19 octobre, la première édition des Journées de l'Entreposage dans le Tchologo s'est achevée le mardi 20 octobre 2026 à Ferkessédougou.",
+      "Retour en vidéo et en images sur cette étape finale.",
+    ],
+    media: { type: "video", src: "/evenement/ferke/etape-4/video.mp4", poster: "/evenement/ferke/etape-4/01.jpeg", ratio: 1024 / 576 },
+    gallery: photoSeries("ferke/etape-4", 38),
+  },
+  {
+    slug: "arre-ci-promotion-entreposage-tchologo-19-octobre-2026",
+    date: "2026-10-19",
+    category: "Partenaires",
+    kicker: "ARRE-CI · Partie 3",
+    title: "L'ARRE-CI au cœur de la promotion de l'entreposage dans le Tchologo",
+    excerpt:
+      "Conduite par son Directeur Général, le Pr KOFFI N'Goran Justin, l'ARRE-CI prend une part active aux JE-TCH 2026, de Kong à Ferkessédougou.",
+    body: [
+      "Du 18 au 20 octobre 2026, la région du Tchologo accueille la première édition des Journées de l'Entreposage (JE-TCH 2026), organisées successivement à Kong, Ouangolodougou et Ferkessédougou.",
+      "Placée sous le signe de la modernisation du secteur agricole et de la valorisation des infrastructures de stockage, cette initiative constitue un cadre privilégié d'échanges entre les acteurs institutionnels, économiques et agricoles.",
+      "Après une première journée à Kong, le dimanche 18 octobre, les activités se poursuivent ce lundi 19 octobre à Ouangolodougou, avant l'étape finale prévue demain, mardi 20 octobre, à Ferkessédougou.",
+      "Prenant une part active à ces journées, l'Autorité de Régulation du Système de Récépissés d'Entreposage (ARRE-CI), conduite par son Directeur Général, le Professeur KOFFI N'Goran Justin, met en lumière les enjeux et perspectives de développement de l'entreposage en Côte d'Ivoire.",
+      "À travers sa participation aux échanges et panels, l'ARRE-CI réaffirme son engagement en faveur de la sécurisation des stocks agricoles, de la réduction des pertes post-récolte et de l'amélioration de l'accès des producteurs aux financements et aux marchés.",
+      "L'ARRE-CI, engagée pour un système d'entreposage moderne, fiable et performant au service du développement agricole ivoirien.",
+    ],
+    source: "Communiqué de l'ARRE-CI — Lundi 19 Octobre 2026. #ARRECI #JETCH2026 #Tchologo #Entreposage #SRE",
+    media: { type: "image", src: "/evenement/kong/etape-3/01.jpeg", alt: "L'ARRE-CI aux JE-TCH 2026" },
+    gallery: photoSeries("kong/etape-3", 59),
+    agenda: [
+      { time: "18 octobre", title: "Première étape", place: "Kong" },
+      { time: "19 octobre", title: "Deuxième étape", place: "Ouangolodougou" },
+      { time: "20 octobre", title: "Étape finale", place: "Ferkessédougou" },
+    ],
+  },
+  {
+    slug: "etape-kong-carnet-de-bord-jour-j-18-octobre-2026",
+    date: "2026-10-18",
+    category: "Terrain",
+    kicker: "Étape de Kong · Partie 2",
+    title: "Carnet de bord officiel — Jour J",
+    excerpt:
+      "Plus de costume, le Commissaire Général a enfilé ses baskets : dernière ligne droite à Kong, de la Place Ancien Marché au Parrain de l'événement.",
+    body: [
+      "Plus de costume, le Commissaire Général a enfilé ses baskets. Retour sur les dernières 24 heures de préparation, entre Ferkessédougou, Kong et Ouangolodougou, jusqu'au matin du Jour J.",
+      "En images : le camion Multipack en installation, l'équipe à pied d'œuvre, la Mairie de Kong et le Point Focal.",
+    ],
+    source: "Carnet de bord officiel du Commissariat Général JE-TCH 2026 — Dimanche 18 Octobre 2026.",
+    media: { type: "image", src: "/evenement/kong/etape-2/01.jpeg", alt: "L'équipe JE-TCH à pied d'œuvre à Kong" },
+    gallery: photoSeries("kong/etape-2", 23),
+    agenda: [
+      { time: "Sam. 17 · 09H00", title: "Départ de Ferkessédougou" },
+      {
+        time: "Sam. 17 · 10H30",
+        title: "Arrivée à Kong",
+        place: "Kong",
+        points: [
+          "Direction Mairie : réunion stratégique",
+          "Cap Place Ancien Marché : lieu de l'événement, négociation acquisition des stands",
+          "Séance de travail avec l'équipe du Point Focal",
+          "Dernière feuille de route : mobilisation, déplacement et repas des producteurs",
+        ],
+      },
+      { time: "Sam. 17 · 15H00", title: "Départ de Kong" },
+      {
+        time: "Sam. 17 · 16H30",
+        title: "Séance de travail avec l'ARRE-CI",
+        participants: ["Pr KOFFI, DG ARRE-CI, et son équipe"],
+      },
+      {
+        time: "Sam. 17 · 17H00",
+        title: "Accueil au QG",
+        place: "Hôtel Château, Ferkessédougou",
+        participants: ["M. Mikel HEIN", "Mme Olga DIBI et son équipe"],
+      },
+      { time: "Sam. 17 · 18H00 – 19H00", title: "Séance de travail avec Mme Olga DIBI et son équipe" },
+      {
+        time: "Sam. 17 · 20H00 – 22H00",
+        title: "Gestion téléphonique",
+        points: [
+          "Équipe RTI",
+          "Équipe du Maire de Kong",
+          "Points Focaux Ouangolodougou et Ferké",
+          "Président du Comité Scientifique, sur le terrain à Ferké",
+        ],
+      },
+      { time: "Sam. 17 · 22H00 – Minuit", title: "Aller-retour Ferkessédougou / Ouangolodougou" },
+      { time: "Dim. 18 · 05H00", title: "Départ pour Kong", notes: ["Arrivée prévue à 06H30."] },
+      {
+        time: "Dim. 18 · 07H00",
+        title: "Séance de travail avec le Parrain",
+        place: "Kong",
+        participants: ["M. Abdrahamane Tiémoko BERTÉ, Maire de Kong, DG de l'IPS-CGRAE"],
+      },
+    ],
+  },
+  {
+    slug: "etape-kong-reconnaissance-16-octobre-2026",
+    date: "2026-10-16",
+    category: "Terrain",
+    kicker: "Étape de Kong · Partie 1",
+    title: "Reconnaissance de sites et séances de travail à Kong",
+    excerpt:
+      "Mission du Commissariat Général à Ferkessédougou et Kong : séance de travail à la Mairie, point sécurité au Commissariat de Police et accueil à l'aéroport de Korhogo.",
+    body: [
+      "Dans le cadre des préparatifs de la 1ère Édition des Journées de l'Entreposage dans le Tchologo (JE-TCH), le Commissariat Général a effectué une mission de reconnaissance à Ferkessédougou et Kong.",
+    ],
+    source: "Compte-rendu d'activités du Commissariat Général JE-TCH 2026 — Vendredi 16 Octobre 2026.",
+    media: { type: "image", src: "/evenement/kong/etape-1/01.jpeg", alt: "Séance de travail à la Mairie de Kong" },
+    gallery: photoSeries("kong/etape-1", 18),
+    agenda: [
+      {
+        time: "9H00 – 12H30",
+        title: "Séance de travail à la Mairie de Kong",
+        place: "Kong",
+        participants: [
+          "M. BARRO Aboubakary, Maire Résident de Kong, et son équipe",
+          "M. COULIBALY Aboubakar (CGRAE-IPS Abidjan), Assistant du Parrain, et M. DIANÉ, en mission spéciale pour l'événement",
+          "Le Commissaire Général, CG TRAORÉ Ishaq",
+        ],
+        points: [
+          "Format de l'événement",
+          "Cibles (producteurs, coopératives, partenaires)",
+          "Organisation pratique et opérationnelle",
+          "Accompagnement de la Mairie : mobilisation, information et sensibilisation des populations",
+        ],
+        notes: [
+          "Le Commissaire Général a présenté l'ensemble du projet. M. le Maire Résident a félicité toute l'équipe d'organisation et particulièrement les points focaux de Kong, M. KONÉ Yaya et M. SYLVAIN, à la tâche depuis un trimestre.",
+          "Il a tenu à saluer l'engagement du Commissaire Général, à la tâche depuis 8 mois : de la conception de l'idée du projet à la création visuelle, charte graphique, supports de communication, démarche de recherche de partenariats, coordination et gestion sur l'axe Abidjan – Kong – Ouangolodougou – Ferkessédougou.",
+        ],
+      },
+      {
+        time: "12H45 – 13H00",
+        title: "Séance de travail — Sécurité",
+        place: "Commissariat de Police de Kong",
+        participants: ["Commissaire N'ZI"],
+        points: [
+          "Informations sécuritaires",
+          "Format de l'événement",
+          "Lieu, heures de début et de fin de l'événement",
+        ],
+      },
+      {
+        time: "15H00",
+        title: "Accueil de M. EZZEDINE",
+        place: "Aéroport de Korhogo",
+        notes: [
+          "Hébergement prévu au QG de Ferkessédougou, Hôtel Château. Itinéraire : Kong – Ferkessédougou – Korhogo.",
+        ],
+      },
+      {
+        time: "16H15",
+        title: "Arrivée au QG",
+        place: "Hôtel Château, Ferkessédougou",
+      },
+    ],
+  },
   {
     slug: "rti1-jt-13h-08-octobre-2026",
     date: "2026-10-08",
