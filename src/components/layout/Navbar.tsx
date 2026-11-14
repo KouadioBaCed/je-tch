@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X, CalendarCheck } from "lucide-react";
 import { Logo } from "@/components/brand/Logo";
+import { EditionSwitch } from "@/components/layout/EditionSwitch";
 import { Button } from "@/components/ui/button";
 import { NAV_LINKS, EVENT } from "@/lib/data";
 import { cn } from "@/lib/utils";
@@ -75,6 +76,7 @@ export function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-3 lg:flex">
+          <EditionSwitch />
           <Button asChild variant="primary" size="sm">
             <Link href="/#inscription">
               <CalendarCheck className="size-4" />
@@ -84,6 +86,8 @@ export function Navbar() {
         </div>
 
         {/* Mobile toggle */}
+        <div className="flex items-center gap-2 lg:hidden">
+        <EditionSwitch />
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
@@ -93,6 +97,7 @@ export function Navbar() {
         >
           {open ? <X className="size-5" /> : <Menu className="size-5" />}
         </button>
+        </div>
       </nav>
 
       {/* Mobile menu */}

@@ -69,7 +69,7 @@ export function Hero() {
             className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row sm:items-center sm:justify-center"
           >
             <Button asChild variant="primary" size="lg" className="group w-full sm:w-auto">
-              <Link href="/#inscription">
+              <Link href="/edition-2026#inscription">
                 <CalendarCheck className="size-5 transition-transform group-hover:scale-110" />
                 Je m'inscris gratuitement
               </Link>
